@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            /* display: none;
+            visibility: hidden; */
+            opacity: 0;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 4, 255);
+            visibility: visible;
+        }
+
+        .div3 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(89, 255, 0);
+        }
+
+        .div4 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 217, 0);
+        }
+
+        .div5 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="div2">
+            <div class="div3"></div>
+            <div class="div4"></div>
+        </div>
+        <div class="div5"></div>
+    </div>
+    <script>
+        let odiv = document.getElementsByClassName('div1')[0];
+        console.log('odiv', odiv)
+        odiv.onclick = () => {
+            console.log('onclick')
+        }
+    </script>
+</body>
+
+</html>
