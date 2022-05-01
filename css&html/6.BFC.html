@@ -6,10 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div1 {
+            width: 300px;
+            height: 110px;
+            background-color: aqua;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 30px;
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(153, 255, 0);
+            margin-top: 10px;
+        }
+
+        .div4 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 68, 255);
+        }
+
+        .div5 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 51);
+        }
+        .div6 {
+            /* overflow: hidden; */
+            float: right;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="div1">
+        <div class="div2"></div>
+        <div class="div6">
+            <div class="div3"></div>
+        </div>
+        <!-- <div class="div4"></div>
+        <div class="div5"></div> -->
+    </div>
 </body>
 
 </html>

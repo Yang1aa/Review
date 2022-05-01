@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const f = (n) => {
+            console.log('n1', n);
+            n += 10;
+            return () => {
+                console.log('111111111111');
+                console.log('n2', n);
+                n += 10;
+                console.log('222222222222');
+                return "1"
+            }
+        }
+        const fn = f(5);
+        fn();
+        fn();
+        console.log('fn()', fn())
+        // const ff = () => {
+        //     console.log('hahaha')
+        //     return "a";
+        // }
+        // console.log("ff()", ff());
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i + ' ');
+            }, 100)
+        }
+        for (var i = -1; i < 5; i++) {
+            let p = i * 10;
+            (function (i) {
+                setTimeout(function () {
+                    console.log(i + ' ');
+                }, 100 * i)
+            })(p);
+        }
+        var num = 15;
+        var fn1 = function(x){
+            if(x>num){
+                console.log(x)
+            }
+        }
+        void function(fn2){
+            var num = 100;
+            fn2(30);
+        }(fn1);
+    </script>
+</body>
+
+</html>

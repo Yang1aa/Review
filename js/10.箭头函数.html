@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inp1">
+    <input type="text" id="inp2">
+    <script>
+        Inp1 = document.getElementById('inp1');
+        Inp2 = document.getElementById('inp2');
+        console.log('Inp1', Inp1);
+        console.log('Inp2', Inp2);
+        Inp1.oninput = function(){
+            console.log('Inp1 this', this);
+            t.call(this);
+        }
+        const t = () => {
+            console.log('t this', this);
+        }
+        function p() {
+            console.log('p this', this);
+        }
+        t();
+        p();
+    </script>
+</body>
+
+</html>

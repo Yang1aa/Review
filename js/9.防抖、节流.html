@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="inp">
+    <script>
+        //防抖
+        var Inp = document.getElementById("inp");
+        Inp.oninput = debounce(function () {
+            console.log('input-value', this.value);
+        }, 500);
+        //防抖代码逻辑
+        function debounce(fn, delay) {
+            let timer = null;
+            return function () {
+                if (timer !== null)
+                    clearTimeout(timer);
+                timer = setTimeout(() => {
+                    // fn();//业务逻辑
+                    fn.call(this);
+                }, delay)
+            }
+        }
+        //节流
+
+        const throttle = (fn, delay) => {
+            let flag = true;
+            return () => {
+                if (flag) {
+                    setTimeout(() => {
+                        fn();
+                        flag = true;
+                    }, delay)
+                }
+                flag = false;
+            }
+        }
+        window.onscroll = throttle(() => {
+            console.log('hello world!');
+        }, 500);
+    </script>
+</body>
+
+</html>

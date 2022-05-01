@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = 123;
+        let string = "123"
+        let arr = [1, 2, 3];
+        let fn = () => {
+            console.log('hello world!');
+        }
+        let empty = null;
+        let nodefine = undefined;
+        let obj = {
+            number,
+            arr,
+            fn,
+            empty,
+            nodefine
+        }
+        // console.log('typeof(number)',typeof(number));
+        // console.log('typeof(string)',typeof(string));
+        // console.log('typeof(arr)',typeof(arr));
+        // console.log('typeof(fn)',typeof(fn));
+        // console.log('typeof(empty)',typeof(empty));
+        // console.log('typeof(nodefine)',typeof(nodefine));
+        // console.log('typeof(obj)',typeof(obj));
+        console.log('typeof(obj)', obj instanceof (Object));
+        console.log('typeof(arr)', arr instanceof (Array));
+        console.log('typeof(empty)', empty instanceof (Object));
+        console.log('typeof(fn)', fn instanceof (Function));
+    </script>
+</body>
+
+</html>

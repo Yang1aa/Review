@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            drink() {
+                console.log(`${this.name}正在喝水~`);
+            }
+        }
+        class Student extends Person {
+            constructor(name, score) {
+                super(name);
+                this.score = score;
+            }
+            say() {
+                console.log(`${this.name}说打了${this.score}分~`);
+            }
+        }
+        class Teacher extends Person {
+            constructor(name, subject) {
+                super(name);
+                this.subject = subject;
+            }
+            teach() {
+                console.log(`${this.name}说我教${this.subject}~`);
+            }
+        }
+        let student = new Student("刘时航", "22");
+        let teacher = new Teacher("yjf", "web");
+        console.log('student', student);
+        student.say();
+        student.drink();
+        student.__proto__.drink();
+        Student.prototype.drink();
+        console.log('teacher', teacher);
+        teacher.teach();
+        teacher.drink();
+        console.log('student.__proto__', student.__proto__);
+        console.log('Student.prototype', Student.prototype);
+    </script>
+</body>
+
+</html>
