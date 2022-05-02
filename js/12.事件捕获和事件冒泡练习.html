@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>添加</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        let oUl = document.querySelector("ul");
+        let oIpt = document.querySelector('input');
+        let oBtn = document.querySelector('button');
+        let text = "";
+        let _this;
+        oIpt.oninput = function () {
+            // 注意使用箭头函数会导致this指向window
+            // console.log('this', this);
+            text = this.value;
+            _this = this;
+        }
+        oBtn.onclick = () => {
+            let newLi = document.createElement("li");
+            newLi.innerText = text;
+            oUl.appendChild(newLi);
+            _this.value = "";
+        }
+        oUl.onclick = (e) => {
+            // console.log('e.target', e.target);
+            oUl.removeChild(e.target);
+        }
+    </script>
+</body>
+
+</html>

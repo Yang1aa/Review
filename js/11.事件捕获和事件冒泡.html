@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #father {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #son {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #grandson {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(243, 102, 144);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="father">
+        <div id="son">
+            <div id="grandson">
+            </div>
+        </div>
+    </div>
+    <script>
+        let father = document.getElementById('father');
+        let son = document.getElementById('son');
+        let grandson = document.getElementById('grandson');
+        // father.onclick = () => {
+        //     console.log("click father");
+        // }
+        // son.onclick = (e) => {
+        //     console.log("click son");
+        //     console.log("e.target", e.target);  
+        // }
+        // grandson.onclick = () => {
+        //     console.log("click grandson");
+        // }
+        father.addEventListener("click", () => {
+            console.log("click father 捕获");
+        }, true);
+        son.addEventListener("click", () => {
+            console.log("click son 捕获");
+        }, true);
+        grandson.addEventListener("click", () => {
+            console.log("click grandson 捕获");
+        }, true);
+        father.addEventListener("click", () => {
+            console.log("click father 冒泡");
+        }, false);
+        son.addEventListener("click", () => {
+            console.log("click son 冒泡");
+        }, false);
+        grandson.addEventListener("click", () => {
+            console.log("click grandson 冒泡");
+        }, false);
+    </script>
+</body>
+
+</html>

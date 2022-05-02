@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1
+        // var name = "window";
+        // function showName() {
+        //     console.log(this.name);
+        // }
+        // var person1 = {
+        //     name: "hello",
+        //     sayName: showName
+        // }
+        // var person2 = {
+        //     name: "worid",
+        //     sayName: function () {
+        //         var fun = person1.sayName;
+        //         fun();
+        //     }
+        // }
+        // person1.sayName();//hello
+        // person2.sayName();//window
+        // 2
+        var A = { n: 4399 };
+        var B = function () {
+            this.n = 9999;
+        }
+        var C = function () {
+            var n = 8888;
+        }
+        B.prototype = A;
+        C.prototype = A;
+        var b = new B();
+        var c = new C();
+        console.log("b",b);
+        console.log("c",c);
+        // A.n++;
+        console.log(b.n);
+        console.log(c.n);
+
+        // 3
+        // var color = "green";
+        // var test = {
+        //     color: 'blue',
+        //     getColor: function () {
+        //         var color = "red";
+        //         console.log(this.color);
+        //     }
+        // }
+        // var getColor = test.getColor;
+        // getColor();
+        // test.getColor();
+    </script>
+</body>
+
+</html>

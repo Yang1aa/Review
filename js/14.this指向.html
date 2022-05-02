@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class Cat {
+        //     constructor(hobby) {
+        //         this.name = "喵喵";
+        //         this.hobby = hobby;
+        //     }
+        //     catHobby(x, y, z) {
+        //         console.log(`喵喵的爱好是${this.hobby},参数${x}、${y}、${z}`);
+        //     }
+        // }
+        // class Dog {
+        //     constructor(hobby) {
+        //         this.name = "汪汪";
+        //         this.hobby = hobby;
+        //     }
+        //     dogHobby(x) {
+        //         console.log(`汪汪的爱好是${this.hobby},参数${x}`);
+        //     }
+        // }
+        // let cat = new Cat("吃鱼");
+        // let dog = new Dog("吃骨头");
+        // cat.catHobby.call(dog, 1, 2, 3);
+        // dog.dogHobby.call(cat, 1);
+        // 函数调用模式this
+        // function f1() {
+        //     console.log("this",this )
+        // }
+        // f1();
+        //方法调用this
+        // let obj1 = {
+        //     a: "a",
+        //     fn: function () {
+        //         console.log("this", this);
+        //     }
+        //fn: () => {
+        //     console.log("this", this);
+        // }
+        // }
+        // obj1.fn();
+        // let o = obj1.fn;
+        // o();
+        // let obj1 = {
+        //     a: "a",
+        //     obj2: {
+        //         b: "b",
+        //         fn: function () {
+        //             console.log("this", this);
+        //         }
+        //     }
+        // }
+        // obj1.obj2.fn();
+        // function Fn() {
+        //     this.name = "yjf";
+        //     console.log("this", this);
+        //     console.log("this.name", this.name);
+        // }
+        // let o = new Fn();
+        // // o();
+        // console.log("o", o.name)
+        // function Fn() {
+        //     this.name = "yjf";
+        //     return {};
+        // }
+        // let o = new Fn();
+        // // o();
+        // console.log("o.name", o.name);
+        let Name = "window_yjf";
+        let obj = {
+            Name: "obj_yjf",
+        }
+        function fn() {
+            console.log("this", this)
+            console.log("this.Name", this.Name);
+        }
+        fn();
+        fn.call(obj);
+    </script>
+</body>
+
+</html>

@@ -10,17 +10,28 @@
 
 <body>
     <script>
-        console.log('a', a);
-        var a = 123;
-        var a = "a";
-        console.log('a', a);
-        //console.log('b', b);//Cannot access 'b' before initialization
-        let b = 123;
-        console.log('b', b);
-        //console.log('c', c);//Cannot access 'c' before initialization
-        const c = 123;
-        //c = 'a';//Assignment to constant variable
-        console.log('c', c);
+        // console.log('a', a);
+        // var a = 123;
+        // var a = "a";
+        // console.log('a', a);
+        // //console.log('b', b);//Cannot access 'b' before initialization
+        // let b = 123;
+        // console.log('b', b);
+        // //console.log('c', c);//Cannot access 'c' before initialization
+        // const c = 123;
+        // //c = 'a';//Assignment to constant variable
+        // console.log('c', c);
+        let abc = "abc";
+        var def = "def";
+        function fn (){
+            console.log("fn_this",this);
+            console.log("fn_abc",this.abc)
+            console.log("fn_def", this.def)
+        }
+        fn();
+        console.log("this", this)
+        console.log("window.abc", this.abc)
+        console.log("window.def", this.def)
     </script>
 </body>
 
