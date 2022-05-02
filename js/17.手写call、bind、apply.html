@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f(a, b, c) {
+            console.log("this", this);
+            console.log("this.Name", this.Name);
+            console.log(`"a:" ${a}, "b:" ${b}, "c:" ${c}`);
+            return (x) => {
+                console.log("x=", x);
+                console.log("return_this", this)
+            };
+        }
+        //手写call
+        //xxx.call()通过.来调用，所以写在函数原型上
+        // Function.prototype.myCall = function (context, ...args) {
+        //     context = context || window;//如果context不传，指向window；
+        //     const fn = Symbol("fn");//使用symbol防止原有属性fn被覆盖；
+        //     context.fn = this;//this就指向调用call的那个函数；
+        //     const result = context.fn(...args);//调用，如果有返回值，并存下返回值；
+        //     delete context.fn;//删除fn属性，因为fn是自己添加的；
+        //     return result;//将返回值返回出去；
+        // }
+        // console.log("————————————————————————————————————————")
+        // const call0 = f(1, 2, 3);
+        // call0(999);
+        // console.log("————————————————————————————————————————")
+        // const call1 = f.myCall({ Name: 'yjf' }, "a", "b", "c");
+        // call1("yjf");
+        // console.log("————————————————————————————————————————")
+        // const call2 = f.myCall();
+        // call2("yjf");
+        // console.log("————————————————————————————————————————")
+        // const call3 = f.call({ Name: 'yjf' }, "a", "b", "c");
+        // call3("yjf");
+        // console.log("————————————————————————————————————————")
+        //手写bind
+        // Function.prototype.myBind = function (context, ...args) {
+        //     return () => {
+        //         context = context || window;
+        //         let fn = Symbol("fn");
+        //         context.fn = this;
+        //         const result = context.fn(...args);
+        //         delete context.fn;
+        //         return result;
+        //     }
+        // }
+        // console.log("————————————————————————————————————————")
+        // const bind0 = f(1, 2, 3);
+        // bind0(999);
+        // console.log("————————————————————————————————————————")
+        // const bind1 = f.myBind({ Name: 'yjf' }, "a", "b", "c");
+        // const bind11 = bind1();
+        // bind11("yjf");
+        // console.log("————————————————————————————————————————")
+        // const bind2 = f.myBind();
+        // const bind22 = bind2();
+        // bind22("yjf");
+        // console.log("————————————————————————————————————————")
+        // const bind3 = f.bind({ Name: 'yjf' }, "a", "b", "c");
+        // const bind33 = bind3();
+        // bind33("yjf");
+        // console.log("————————————————————————————————————————")
+        // 手写apply
+        Function.prototype.myApply = function (content, args = []) {
+            content = content || window;
+            let fn = Symbol("fn");
+            content.fn = this;
+            const result = content.fn(...args);
+            delete content.fn;
+            return result;
+        }
+        const apply0 = f(1, 2, 3);
+        apply0(999);
+        console.log("————————————————————————————————————————")
+        const apply1 = f.myApply({ Name: 'yjf' }, ["a", "b", "c"]);
+        apply1("yjf");
+        console.log("————————————————————————————————————————")
+        const apply2 = f.myApply();
+        apply2("yjf");
+        console.log("————————————————————————————————————————")
+        const apply3 = f.apply({ Name: 'yjf' }, ["a", "b", "c"]);
+        apply3("yjf");
+        console.log("————————————————————————————————————————")
+    </script>
+</body>
+
+</html>

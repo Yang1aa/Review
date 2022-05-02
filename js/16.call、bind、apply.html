@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Cat {
+            constructor(hobby) {
+                this.name = "喵喵";
+                this.hobby = hobby;
+            }
+            catHobby(obj) {
+                console.log(`喵喵的爱好是${this.hobby},参数${obj.x}、${obj.y}、${obj.z}`);
+            }
+        }
+        class Dog {
+            constructor(hobby) {
+                this.name = "汪汪";
+                this.hobby = hobby;
+            }
+            dogHobby(x) {
+                console.log(`汪汪的爱好是${this.hobby},参数${x}`);
+            }
+        }
+        let cat = new Cat("吃鱼");
+        let dog = new Dog("吃骨头");
+        // cat.catHobby.call(dog, 1, 2, 3);
+        dog.dogHobby.call(cat, 1);
+        dog.dogHobby.bind(cat, 1)();
+        cat.catHobby.apply(dog, [{
+            x: 'x',
+            y: 'y',
+            z: 'z',
+        }]);
+        cat.catHobby.call(dog, {
+            x: 'a',
+            y: 'b',
+            z: 'c',
+        });
+
+    </script>
+</body>
+
+</html>
