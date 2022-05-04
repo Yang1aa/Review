@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log("script start")
+        // let p2 = new Promise((resolve, reject) => {
+        //     console.log("p2_resolve")
+        //     resolve()
+        //     // reject("error")
+        // }).then(
+        //     console.log("p2_then")
+        // ).catch((res) => {
+        //     console.log(res)
+        // })
+        // let p1 = new Promise((resolve, reject) => {
+        //     resolve("hello ")
+        //     console.log("p1_resolve")
+        // })
+        // p1.then(
+        //     console.log("p1_then")
+        // )
+        // Promise.resolve(
+        //     // "123"
+        //     console.log("123")
+        // ).then((data) => {
+        //     console.log("Promise_then")
+        //     // console.log("data", data)//data is not defined
+        // })
+        // console.log("script end")
+        // Promise.resolve("123")
+        //     .then((data) => {
+        //         console.log("success", data)
+        //     }, (data) => {
+        //         console.log("error", data)
+        //     })
+        // Promise.reject("123")
+        //     .then((data) => {
+        //         console.log("success", data)
+        //     }, (data) => {
+        //         console.log("error", data)
+        //     })
+        // Promise.resolve("123")
+        //     .then((data) => {
+        //         console.log("success", data)
+        //         return data;
+        //     }, (data) => {
+        //         console.log("error", data)
+        //     })
+        //     .then((data)=>{
+        //         console.log("data",data)
+        //     })
+        // Promise.reject("123")
+        //     .then((data) => {
+        //         console.log("success", data)
+        //         return "123"
+        //     }, (data) => {
+        //         console.log("error", data)
+        //         return "123"
+        //     })
+        //     .then((data)=>{
+        //         console.log("data",data)
+        //     },()=>{
+        //         console.log("data",data)
+        //     })
+        // Promise.resolve("123")
+        //     .then()
+        //     .then((data) => {
+        //         console.log("data", data)
+        //     })
+        // Promise.reject("123")
+        //     .then()
+        //     .then(() => { }, (data) => {
+        //         console.log("data", data)
+        //     })
+
+        // Promise.all测试用例
+        // let p1 = new Promise((resolve, reject) => {
+        //     resolve("p1成功了!");
+        // })
+        // let p2 = new Promise((resolve, reject) => {
+        //     resolve("p2成功了!");
+        // })
+        // let p3 = new Promise((resolve, reject) => {
+        //     reject("p3失败了!");
+        // })
+        // console.log("p3",p3)
+        // let p4 = new Promise((resolve, reject) => {
+        //     reject("p4失败了!");
+        // }).catch((res) => {
+        //     console.log("p4:", res)         
+        // })
+        // console.log("p4",p4)
+        // Promise.all([p1, p2, p4, p3])
+        //     .then((data) => {
+        //         console.log("data", data)
+        //     })
+        //     .catch((res) => {
+        //         console.log("res", res)
+        //     })
+        //--------------------------------------
+        // new Promise((resolve, reject) => {
+        //     reject(1);
+        //     console.log(6);
+        // }).catch((a) => {
+        //     console.log(a);
+        // }, () => {
+        //     console.log("b")
+        // }).then(
+        //     // () => console.log(3),
+        //     (v) => console.log(v)
+        // ).then(
+        //     // console.log("last then")
+        //     console.log
+        // );
+        // setTimeout(console.log, 1000, 4);
+        // console.log(5);
+        //
+        // console.log("111",console.log)
+        // new Promise((resolve, reject) => {
+        //     reject(1);
+        //     console.log(6);
+        // }).catch(() => {
+        //     console.log(2);
+        // }).then(() => console.log(3), (v) => console.log(v)).then(console.log);
+        // setTimeout(console.log, 0, 4);
+        // console.log(5);
+        // async await
+        async function f1() {
+            return Promise.resolve("abc");
+        }
+        async function f2() {
+            var c = await f1();
+            console.log(f1())
+            console.log(c);
+            console.log(999);
+        }
+        f2();
+    </script>
+</body>
+
+</html>

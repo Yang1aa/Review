@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const f1 = () => {
+        //     console.log("f1_this", this);
+        // }
+        // function f2() {
+        //     console.log("f2_this", this);
+        // }
+        // f1();
+        // f2();
+        // f1.call({ Name: "yjf" });
+        // f1.bind({ Name: "yjf" })();
+        // f1.apply({ Name: "yjf" });
+        // f2.call({ Name: "yjf" });
+        // let obj1 = {
+        //     Name: 'yjf',
+        //     fn1: () => {
+        //         console.log("fn1_this", this);
+        //     },
+        //     fn2: function () {
+        //         console.log("fn2_this", this);
+        //     }
+        // }
+        // obj1.fn1();
+        // obj1.fn2();
+        // let obj1 = {
+        //     name: 'yjf',
+        //     f1: function f1() {
+        //         console.log("this", this);
+        //         return () => {
+        //             console.log("this", this);
+        //         }
+        //     }
+        // }
+        // let obj2 = {
+        //     name: 'yjf',
+        //     f1: () => {
+        //         console.log("this", this);
+        //     }
+        // }
+        // let f2 = obj1.f1();
+        // f2();
+        // let f3 = obj2.f1();
+        // let F = () => {
+
+        // }
+        // let f = new F();//F is not a constructor
+        let f = (...args) => {
+            console.log("args", args)
+        }
+        f([1, 2, 3, 4]);
+    </script>
+</body>
+
+</html>

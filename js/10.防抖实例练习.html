@@ -16,6 +16,7 @@
                 if (timer !== null)
                     clearTimeout(timer);
                 timer = setTimeout(() => {
+                    console.log("this", this)//window
                     fn.apply(this, [e]);
                 }, delay);
             }

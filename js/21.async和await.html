@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // await普通函数
+        // async function fun() {
+        //     let a = await 1;
+        //     let b = await new Promise((resolve, reject) => {
+        //         setTimeout(function () {
+        //             resolve('setTimeout')
+        //         }, 3000)
+        //     })
+        //     let c = await function () {
+        //         return 'function'
+        //     }()
+        //     console.log(a, b, c)
+        // }
+        //await Promise对象
+        // fun(); // 3秒后输出： 1 "setTimeout" "function"
+        // function log(time) {
+        //     setTimeout(function () {
+        //         console.log(time);
+        //         return 1;
+        //     }, time)
+        // }
+        // await 普通函数
+        // async function fun() {
+        //     let a = await log(1000);
+        //     let b = await log(3000);
+        //     let c = log(2000);
+        //     console.log(a);
+        //     console.log(1)
+        // }
+        // fun();
+        // 立即输出 undefined 1
+        // 1秒后输出 1000
+        // 2秒后输出 2000
+        // 3秒后输出 3000
+        // try catch 的集合捕获reject
+        let p = new Promise((resolve, reject) => {
+            reject("Promise_resolve");
+        }).then(() => {
+            console.log("Promise_then")
+        })
+        async function f() {
+            try {
+                let q = await p;
+            } catch (res) {
+                console.log("res", res)
+            }
+        }
+        f();
+    </script>
+</body>
+
+</html>
