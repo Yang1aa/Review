@@ -10,32 +10,35 @@
 
 <body>
     <script>
-        let arr = [1, "2", undefined, [1, 2, () => { console.log("first") }], { name: 'yjf' }, () => { console.log("hi") }]
+        let data = new Date();
+        let arr = [1, "2", undefined, [1, 2, () => { console.log("first") }], { name: 'yjf' }, () => { console.log("hi") }, data, NaN, Infinity]
 
-        let deepClone = (obj) => {
-            let cloneObj = Array.isArray(obj) ? [] : {};
-            if (obj && typeof obj === 'object') {
-                for (key in obj) {
-                    if (obj[key] && typeof (obj[key]) === 'object') {
-                        cloneObj[key] = deepClone(obj[key]);
-                    } else {
-                        cloneObj[key] = obj[key]
-                    }
-                }
-            }
-            return cloneObj;
-        }
-        let newArr = deepClone(arr);
+        // //递归实现
+        // let deepClone = (obj) => {
+        //     let cloneObj = Array.isArray(obj) ? [] : {};
+        //     if (obj && typeof obj === 'object') {
+        //         for (key in obj) {
+        //             if (obj[key] && typeof (obj[key]) === 'object') {
+        //                 cloneObj[key] = deepClone(obj[key]);
+        //             } else {
+        //                 cloneObj[key] = obj[key]
+        //             }
+        //         }
+        //     }
+        //     return cloneObj;
+        // }
+        // let newArr = deepClone(arr);
 
-        // //Object.assign方法
-        //let newArr = {}
-        // Object.assign(newArr, arr);
+        //Object.assign方法
+        let newArr = {}
+        Object.assign(newArr, arr);
 
         // //JSON方法
         // let newArr = JSON.parse(JSON.stringify(arr));
         newArr[0] = "9";
         console.log("arr", arr)
         console.log("newArr", newArr)
+        console.log('data', data)
     </script>
 </body>
 
