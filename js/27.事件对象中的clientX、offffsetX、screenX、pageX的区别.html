@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            top: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        div {
+            margin-left: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 1000px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        window.onmousemove = debounce((e) => {
+            console.log('e.clientX', e.clientX, 'e.clientY', e.clientY)
+            console.log('e.pageX', e.pageX, 'e.pageY', e.pageY)
+            console.log('e.screenX', e.screenX, 'e.screenY', e.screenY)
+            console.log('e.offsetX', e.offsetX, 'e.offsetY', e.offsetY)
+            console.log('e.x', e.x, 'e.y', e.y)
+        }, 500)
+        function debounce(fn, await) {
+            let timer = null;
+            return function (e) {
+                if (timer !== null)
+                    clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.call(this, e);
+                }, await)
+            }
+        }
+    </script>
+</body>
+
+</html>
