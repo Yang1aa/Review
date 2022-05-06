@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = [1, 2, 3, { name: "yjf" }, 4];
+        // let arr1 = [1, 1, 1, 1, 1]
+        // let obj = {
+        //     "1": "a",
+        //     "2": "b",
+        //     "3": arr,
+        // }
+        // for in 适合遍历对象，如果遍历数组下标参与运算的话，遍历的index为字符串会出现问题。
+        // for (let index in arr) {
+        //     console.log("arr_index", index, "arr_value", arr[index]);
+        // }
+
+        // for (let index in obj) {
+        //     console.log("obj_index", index);
+        //     console.log("obj_value", obj[index]);
+        // }
+        // console.log("——————————————————")
+
+        // // for of遍历数组，如果遍历对象会报错，for of直接遍历数组的value，不是index。
+        // for (let index of arr) {
+        //     console.log("arr_index", index, "arr_value", arr[index]);
+        // }
+        // console.log("——————————————————")
+
+        // // forEach遍历数组，没有返回值，不能return出来，对原数组的基础数据类型无法修改，引用数据类型可以修改；
+        // let newArr = arr.forEach((item) => {
+        //     return;
+        //     if (item instanceof Object) {
+        //         console.log("arr.forEach_item", item);
+        //         item.name = "hello World!"
+        //     } else {
+        //         console.log("arr.forEach_f", item);
+        //         item = item * 2;
+        //     }
+        // })
+        // console.log("arr", arr);
+        // console.log("newArr", newArr);
+        // console.log("——————————————————")
+
+        // //map方法 有返回值，为return的值
+        // let newArr = arr.map((item) => {
+        //     // return;
+        //     if (item instanceof Object) {
+        //         console.log("arr.map_item", item);
+        //         item.name = "hello World!"
+        //         return item;
+        //     } else {
+        //         item = item * 2;
+        //         console.log("arr.map", item);
+        //         return item *= 2;
+        //     }
+        // })
+        // console.log("arr", arr);
+        // console.log("newArr", newArr);
+        // console.log("——————————————————")
+
+        // // filter遍历 主要用于过滤
+        // let newArr = arr.filter((item, index, arr) => {
+        //     console.log("arr.filter_item", item);
+        //     console.log("arr.filter_index", index);
+        //     console.log("arr.filter_arr", arr);
+        //     return item % 2 === 0;
+        // })
+        // console.log("arr", arr);
+        // console.log("newArr", newArr);
+        // console.log("——————————————————")
+
+        // every 用来判断数组的每个值是否满足一个条件。有点像并且
+        // let newArr = arr.every((item, index, arr) => {
+        //     // return true;
+        //     return typeof (item) === 'number';
+        // })
+        // console.log("newArr", newArr);
+        // console.log("——————————————————")
+
+        // some 用来判断数组的某个值是否满足一个条件。有点像或者
+        // let newArr = arr.some((item, index, arr) => {
+        //     console.log("item",item)
+        //     return false;
+        //     return typeof (item) === 'number';
+        // })
+        // console.log("newArr", newArr);
+
+        // // reduce
+        // let newArr = arr1.reduce((pre, current, index, arr1) => {
+        //     console.log("arr.reduce_index", index);
+        //     console.log("arr.reduce_pre", pre);
+        //     console.log("arr.reduce_current", current);
+        //     return pre + current;
+        // })
+        // console.log("newArr", newArr);
+        // console.log("arr", arr1);
+        let arr = [1, 2, 3, 4, 5];
+        let newArr = arr.forEach((item) => {
+            return;
+            console.log("item", item);
+        })
+
+    </script>
+</body>
+
+</html>

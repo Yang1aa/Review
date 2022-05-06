@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function A() {
+        //     this.name = "A";
+        // }
+        // function B() {
+        //     this.name = "B";
+        // }
+        // let a = new A();
+        // let b = new B();
+        // console.log(a.__proto__ === A.prototype);
+        // console.log(b.__proto__ === B.prototype);
+        // let c = Object.create(null);
+        // console.log("c", c);
+        // // B.prototype = A;
+        // let d = new B();
+        // console.log("d", d)
+        // getPrototypeOf从实例化对象一点一点往上找
+        // let proto = Object.getPrototypeOf(d);
+        // console.log("proto", proto);
+        // // console.log("p1",B.prototype)
+        // proto = Object.getPrototypeOf(proto);
+        // console.log("proto", proto);
+        // proto = Object.getPrototypeOf(proto);
+        // console.log("proto", proto);
+        // 手动实现一下instanceof的功能
+        function copyInstanceof(a, b) {
+            if (!["function", "object"].includes(typeof a) || !a)
+                return false;
+            let proto = Object.getPrototypeOf(a);
+            while (true) {
+                if (proto === b.prototype)
+                    return true;
+                if (proto === null) {
+                    return false;
+                }
+                proto = Object.getPrototypeOf(proto)
+            }
+        }
+        var simpleStr = "This is a simple string";
+        var myString = new String();
+        var newStr = new String("String created with constructor");
+        var myDate = new Date();
+        var myObj = {};
+        var myNonObj = Object.create(null);
+        // console.log("simpleStr instanceof String", simpleStr instanceof String);
+        // console.log("myString instanceof String", myString instanceof String);
+        // console.log("newStr instanceof String", newStr instanceof String);
+        // console.log("myString instanceof Object", myString instanceof Object);
+        // console.log("myObj instanceof Object", myObj instanceof Object);
+        // console.log("({}) instanceof Object", ({}) instanceof Object);
+        // console.log("myNonObj instanceof Object", myNonObj instanceof Object);
+        // console.log("myString instanceof Date", myString instanceof Date);
+        // console.log("myDate instanceof Date", myDate instanceof Date);
+        // console.log("myDate instanceof Object", myDate instanceof Object);
+        // console.log("myDate instanceof String", myDate instanceof String);
+        // console.log("————————————————————————————————————————————————————————")
+        // console.log("copyInstanceof(simpleStr,String)", copyInstanceof(simpleStr, String));
+        // console.log("copyInstanceof(myString,String)", copyInstanceof(myString, String));
+        // console.log("copyInstanceof(newStr,String)", copyInstanceof(newStr, String));
+        // console.log("copyInstanceof(myString,Object)", copyInstanceof(myString, Object));
+        // console.log("copyInstanceof(myObj,Object)", copyInstanceof(myObj, Object));
+        // console.log("copyInstanceof(({}),Object)", copyInstanceof(({}), Object));
+        // console.log("copyInstanceof(myNonObj,Object)", copyInstanceof(myNonObj, Object));
+        // console.log("copyInstanceof(myString,Date)", copyInstanceof(myString, Date));
+        // console.log("copyInstanceof(myDate,Date)", copyInstanceof(myDate, Date));
+        // console.log("copyInstanceof(myDate,Object)", copyInstanceof(myDate, Object));
+        // console.log("copyInstanceof(myDate,String)", copyInstanceof(myDate, String));
+        console.log(copyInstanceof("111", String)); // false
+        console.log(copyInstanceof(new String("111"), String)); // true
+        console.log(copyInstanceof(Date, Function)); // true
+        console.log(copyInstanceof(null, Object)); // false
+    </script>
+</body>
+
+</html>
