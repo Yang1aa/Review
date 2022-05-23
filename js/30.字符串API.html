@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "abcdefghijklmnopqrstuvwxyz";
+        // //charAt 
+        // console.log(str.charAt(25))//z
+        // charCodeAt
+        console.log(str.charCodeAt(25))//122
+        //String.fromCharCode
+        console.log(String.fromCharCode(122))//z
+        // indexOf
+        console.log(str.indexOf('a'));//0
+        // substr
+        console.log(str.substr(2, 2))//cd
+        // slice
+        console.log(str.slice(10))
+        // toUpperCase
+        let s = "aaa";
+        console.log(s.toUpperCase())
+        console.log(s.toLocaleUpperCase())
+        // toLowerCase
+        s = "BBB"
+        console.log(s.toLowerCase())
+        // padStart
+        console.log(s.padStart(10, 'b'))
+    </script>
+</body>
+
+</html>

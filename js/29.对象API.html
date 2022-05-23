@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // obj.hasOwnProperty()
+        // function Web() {
+        //     this.url = "www.baidu.com";
+        //     this.sayHello = function () {
+        //         console.log("hello", this.url);
+        //     }
+        // }
+        // let objWeb = {
+        //     objUrl: "www.qq.com",
+        //     sayHi: function () {
+        //         console.log("hi", url)
+        //     }
+        // }
+        // let web = new Web();
+        // web.__proto__ = objWeb;
+        // console.log(web.hasOwnProperty("url"))
+        // console.log(web.hasOwnProperty("sayHello"))
+        // // 以下属性继承自原型链，因此为false
+        // console.log(web.hasOwnProperty("objUrl"))
+        // console.log(web.hasOwnProperty("sayHi"))
+        // //想要查看对象(包括原型链)是否具备指定的属性，可以使用in操作符
+        // console.log("url" in web);
+        // console.log("objUrl" in web);
+
+
+        // obj.keys()
+        // 传入对象，返回属性名
+        // var obj = {
+        //     'a': '123',
+        //     'b': '345',
+        //     c: '678',
+        //     1: 100
+        // };
+        // console.log(Object.keys(obj)); //[ 'a' , 'b']
+        // let str = "abcde";
+        // console.log(Object.keys(str));//(5) ['0', '1', '2', '3', '4']
+        // let arr = ['1', 2, '2', '1'];
+        // console.log(Object.keys(arr));//(4) ['0', '1', '2', '3']
+        // function f() {
+        //     console.log("hello world");
+        // }
+        // console.log(Object.keys(f))
+
+        // Object.defineProperty(obj,prop,descriptor)
+        // let obj = {
+        //     a: 1,
+        //     1: 2,
+        //     'c': 3
+        // }
+        // Object.defineProperty(obj, '1', {
+        //     value: 'a',
+        //     writable: true,
+        // })
+        // Object.defineProperty(obj, '2', {
+        //     value: 'b',
+        //     writable: true,
+        // })
+        // console.log(obj)//{1: 'a', a: 1, c: 3, 2: 'b'}
+
+        // Object.is()
+        // console.log(+0 == -0);//true
+        // console.log(Object.is(+0, -0));//false
+        // console.log(NaN == NaN);//false
+        // console.log(Object.is(NaN, NaN));//true
+        // console.log({} == {})//false
+        // console.log(Object.is({}, {}));//false
+
+        // Object.assign()
+let obj = {
+    a: 1,
+    1: 2,
+    'c': 3
+}
+let objWeb = {
+    objUrl: "www.qq.com",
+    sayHi: function () {
+        console.log("hi", url)
+    }
+}
+let newObj = Object.assign({}, obj, objWeb)
+console.log(newObj)
+console.log(obj)
+console.log(objWeb)
+    </script>
+</body>
+
+</html>
