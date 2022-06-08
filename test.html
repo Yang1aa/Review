@@ -6,67 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            height: 2000px;
-        }
-    </style>
 </head>
 
 <body>
-    <input type="text">
     <script>
-        const debounce = (fn, await) => {
-            let timer = null;
-            return function () {
-                if (timer !== null) {
-                    clearTimeout(timer);
-                }
-                timer = setTimeout(() => {
-                    // console.log("this",this)
-                    fn.call(this);
-                }, await)
+        let map = new Map();
+        let a = []
+        let arr = [[-1, 0, 1], [-1, 2, -1], [0, 1, -1]]
+        for (let i = 0; i < arr.length; i++) {
+            if (!map.get(arr[i].sort())) {
+                map.set(arr[i].sort())
+                a.push(arr[i])
             }
         }
-        document.querySelector("input").oninput = debounce(function () {
-            console.log("value", this.value);
-            this.value = "";
-        }, 500)
-        window.onscroll = throttle(() => {
-            console.log("hello");
-        }, 500)
-        function throttle(fn, await) {
-            let flag = true;
-            return () => {
-                if (flag) {
-                    setTimeout(function () {
-                        console.log("hello");
-                        flag = true;
-                    }, await)
-                }
-                flag = false;
-            }
-        }
-        Function.prototype.myBind = function (ctx, ...res) {
-            return () => {
-                ctx = ctx || window;
-                let fn = Symbol("fn");
-                ctx.fn = this;
-                let result = ctx.fn(...res);
-                delete ctx.fn;
-                return result;
-            }
-        }
-        function f(...e) {
-            console.log("this", this);
-            console.log("this.Name", this.Name);
-            console.log("e", ...e);
-            return () => {
-                console.log("this.age", this.age);
-            }
-        }
-        f.bind({ Name: "yjf", age: "21" }, "你好", "世界")()();
-        f.myBind({ Name: "yjf", age: "21" }, "你好", "世界")()();
+        console.log(map)
+        console.log(a)
     </script>
 </body>
 

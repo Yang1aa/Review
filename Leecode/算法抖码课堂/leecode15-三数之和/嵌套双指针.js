@@ -1,32 +1,37 @@
 let nums = [-1, 0, 1, 2, -1, -4];
 var threeSum = function (nums) {
-    let arr = [];
-    let result = [];
-    function twoSum(arr, target) {
-        arr.sort((a, b) => {
-            return a - b;
-        })
-        let i = 0,
-            j = 0,
-            result = [];
-        while (i < j) {
-            if (arr[i] + arr[j] < target) {
-                i++;
-            } else if (arr[i] + arr[j] > target) {
-                j++;
+    if (nums.length < 3)
+        return [];
+    let ans = [];
+    nums = nums.sort((a, b) => {
+        return a - b;
+    })
+    for (let i = 0; i < nums.length - 2; i++) {
+        let temp = -nums[i];
+        if (i > 0 && nums[i] === nums[i - 1])
+            continue;
+        let l = i + 1;
+        let r = nums.length - 1;
+        while (l < r) {
+            if (l > i + 1 && nums[l] === nums[l - 1]) {
+                l++;
+                continue;
+            }
+            if (r < nums.length - 1 && nums[r] === nums[r + 1]) {
+                r--;
+                continue;
+            }
+            if (nums[l] + nums[r] > temp) {
+                r--;
+            } else if (nums[l] + nums[r] < temp) {
+                l++;
             } else {
-                result.push(arr[i], arr[j]);
+                ans.push([nums[i], nums[l], nums[r]]);
+                l++;
+                r--;
             }
         }
-        return result.length > 0 ? result : false;
     }
-    for (let i = 0; i < nums.length; i++) {
-        let target = -nums[i];
-        arr = { ...nums };
-        arr.splice(i, 1)
-        if (twoSum(arr, target)) {
-            result.push(nums[i]);
-        }
-    }
+    return ans;
 };
 console.log(threeSum(nums))
