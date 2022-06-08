@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mergeSortedArr(arr1, arr2) {
+            //方法一
+            // let arr = [].concat(arr1);
+            // arr = arr.concat(arr2);
+            // arr.sort((a, b) => {
+            //     return a - b;
+            // })
+
+            // 方法二
+            let arr = [];
+            let i = 0;
+            let j = 0;
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] > arr2[j]) {
+                    arr.push(arr2[j])
+                    j++;
+                } else if (arr1[i] <= arr2[j]) {
+                    arr.push(arr1[i])
+                    i++;
+                }
+            }
+            console.log(i, j)
+            // if (i === arr1.length) {
+            //     for (let l = j; j < arr2.length; j++) {
+            //         arr.push(arr2[l]);
+            //         console.log(arr2[l])
+            //     }
+            // } else {
+            //     for (let l = i; l < arr1.length; l++) {
+            //         arr.push(arr1[l]);
+            //     }
+            // }
+            i >= arr1.length ? arr = arr.concat(arr2.slice(j)) : arr = arr.concat(arr1.slice(i));
+            return arr;
+        }
+        let arr1 = [1, 4, 5, 6, 10];
+        let arr2 = [0, 1, 2, 3]
+        console.log(mergeSortedArr(arr1, arr2))
+    </script>
+</body>
+
+</html>
