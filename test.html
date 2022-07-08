@@ -19,6 +19,31 @@
     <div>
 
     </div>
+    <script>
+        let arr = [1, 4, 7, 9, 10, 11, 13, 18, 19];
+        let len = 4;
+        let f = (arr, len) => {
+            if (len < 1) {
+                return 0;
+            }
+            let l = 0, r = 0;
+            let result = 0;
+            while (r < arr.length) {
+                //小于等于len
+                if (arr[r + 1] - l <= len) {
+                    r++;
+                }
+                // 大于len
+                else {
+                    result = Math.max(result, l - r + 1);
+                    l++;
+                }
+            }
+            console.log('result')
+            return result;
+        }
+        console.log(f(arr, len));
+    </script>
 </body>
 
 </html>

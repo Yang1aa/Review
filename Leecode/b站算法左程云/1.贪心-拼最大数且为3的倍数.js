@@ -14,23 +14,27 @@ let f = (arr) => {
             arr2.push(iterator);
         }
     }
-    if (sum % 3 === 1) {
+    if (sum % 3 === 0) {
+        result = arr.reverse().join('');
+    }
+    else if (sum % 3 === 1) {
         if (arr1.length) {
-            arr.splice(arr.indexOf(arr1[0]), 1, "");
+            arr.splice(arr.indexOf(arr1[0]), 1);
         } else {
-            arr.splice(arr.indexOf(arr2[0]), 1, "");
-            arr.splice(arr.indexOf(arr2[1]), 1, "");
+            arr.splice(arr.indexOf(arr2[0]), 1);
+            arr.splice(arr.indexOf(arr2[1]), 1);
         }
+        result = arr.reverse().join('');
     } else {
         if (arr2.length) {
-            arr.splice(arr.indexOf(arr2[0]), 1, "");
+            arr.splice(arr.indexOf(arr2[0]), 1);
 
         } else {
-            arr.splice(arr.indexOf(arr1[0]), 1, "");
-            arr.splice(arr.indexOf(arr1[1]), 1, "");
+            arr.splice(arr.indexOf(arr1[0]), 1);
+            arr.splice(arr.indexOf(arr1[1]), 1);
         }
+        result = arr.reverse().join('');
     }
-    result = arr.length ? "null" : arr.reverse().join('');
     return result;
 }
-console.log(f(arr))
+console.log(f(arr));
