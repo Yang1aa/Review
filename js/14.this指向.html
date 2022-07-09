@@ -53,16 +53,25 @@
         // let o = new Fn();
         // // o();
         // console.log("o.name", o.name);
-        let Name = "window_yjf";
-        let obj = {
-            Name: "obj_yjf",
+        // let Name = "window_yjf";
+        // let obj = {
+        //     Name: "obj_yjf",
+        // }
+        // function fn() {
+        //     console.log("this", this)
+        //     console.log("this.Name", this.Name);
+        // }
+        // fn();
+        // fn.call(obj);
+        class Person {
+            fun() {
+                console.log("this   --->   ", this);
+            }
         }
-        function fn() {
-            console.log("this", this)
-            console.log("this.Name", this.Name);
-        }
-        fn();
-        fn.call(obj);
+        let p = new Person();
+        p.fun();
+        let pp = p.fun;
+        pp();
     </script>
 </body>
 
