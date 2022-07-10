@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/react.development.js"></script>
+    <script src="../script/react-dom.development.js"></script>
+</head>
+
+<body>
+    <button id="button">click</button>
+    <div id="root"></div>
+    <script>
+        let btn = React.createElement('button', {
+            id: 'btn',
+            className: 'btn',
+            onClick: () => {
+                alert("点我干啥？")
+            }
+        }, "点 我 ？")
+        // 老版本渲染React 18以前
+        // ReactDOM.render(btn, document.getElementById('root'));
+        // let div = ReactDOM.createRoot(document.getElementById("root"));
+        // div.render(btn)
+
+        let button = document.getElementById("button");
+        button.onclick = () => {
+            let btn = React.createElement('button', {
+                id: 'btn',
+                className: 'btn',
+                onClick: () => {
+                    alert("点我干啥？")
+                }
+            }, "click me ？");
+            div.render(btn)
+        }
+
+    </script>
+</body>
+
+</html>

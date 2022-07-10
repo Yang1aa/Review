@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/react.development.js"></script>
+    <script src="../script/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        // // 操作Dom
+        // let root = document.getElementById('root');
+        // let div = document.createElement('div');
+        // div.innerText = "Dom! helloWord!";
+        // root.appendChild(div);
+
+        // 操作React
+        let div = React.createElement('div', {}, 'React! helloWord!');
+        let root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(div);
+    </script>
+</body>
+
+</html>
