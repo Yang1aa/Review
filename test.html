@@ -1,41 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        #span {
-            width: 100px;
-            height: 100px;
-            background-color: rgba(255, 0, 0, 0);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-top: -50px;
-            margin-left: -50px;
-        }
-
-        #div {
-            width: 200px;
-            height: 200px;
-            background-color: blue;
-            position: relative;
-        }
-    </style>
-</head>
-
-<body>
-    <div id="div">
-        <div id="span"></div>
-    </div>
-</body>
-
+<html>
+ 
+        <head>
+	    <meta charset="utf-8" />
+	    <title>拖放垃圾桶制作</title>
+	    <style type="text/css">
+                ul{
+                    overflow: hidden;
+                }
+                li{
+                    width:85px;
+                    height:30px;
+                    text-align:center;
+                    border:1px solid #000;
+                    margin:20px;
+                    list-style: none;
+                    float: left;	
+                }
+                #out{
+	            width:100px;
+	            height:130px;
+                    margin: 80px;
+                    border:1px solid #000;
+                    background: url(../img/垃圾桶.jpg) no-repeat;
+                    background-size:100% ;
+                    background-position: 0 30px;
+                    color:red;
+                    text-align:center;
+                }
+            </style>
+	</head>
+ 
+	<body>
+		<ul>
+			<!--draggable=true,说明该元素可以拖动-->
+			<li draggable="true">白色垃圾</li>
+			<li draggable="true">湿垃圾</li>
+			<li draggable="true">干垃圾</li>
+			<li draggable="true">可回收垃圾</li>
+		</ul>
+		<p id="txt">垃圾桶文件:</p>
+		<div id="out">垃圾桶</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oLi=document.getElementsByTagName("li");
+			var oDiv=document.getElementById("out");
+			var txt=document.getElementById("txt");
+//			存储当前拖动元素
+			var targetLi=null;
+			
+			for(var i=0;i<oLi.length;i++){
+//				触发拖动移动时的事件
+				oLi[i].ondragstart=function(ev){
+//					拖动时背景为黄色
+					this.style.background="yellow";
+					targetLi=this;
+//					携带的类型和数据
+					ev.dataTransfer.setData("Text",this.innerHTML);
+				}
+//				停止拖拽时清空背景颜色
+				oLi[i].ondragend=function(){
+					this.style.background="";
+				}
+			}
+			
+//			拖动到垃圾箱时的事件
+			oDiv.ondragenter=function(){
+				this.style.borderColor="red"
+			}
+//			持续在垃圾桶时阻止默认事件
+			oDiv.ondragover=function(ev){
+				ev.preventDefault();
+			}
+//			离开垃圾桶的事件
+			oDiv.ondragleave=function(){
+				this.style.borderColor="#000"
+			}
+//			进入垃圾桶后事件
+			oDiv.ondrop=function(ev){
+				this.style.borderColor="#000";
+//				取出文本
+				var oTxt=ev.dataTransfer.getData("Text");
+				txt.innerHTML="垃圾桶文件："+oTxt;
+//                              删除当前拖动元素的父节点的指定子节点
+				targetLi.parentNode.removeChild(targetLi);
+			}
+		}
+	</script>
+ 
 </html>
