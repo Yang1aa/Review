@@ -1,20 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import "./index.css"
 export default function Index(props) {
-
-    const [date, setDate] = useState('');
-    const [plan, setPlan] = useState('');
-    const [time, setTime] = useState('');
-    const dateChangeHandle = (e) => {
-        setDate(e.target.value);
-    }
-    const planChangeHandle = (e) => {
-        setPlan(e.target.value);
-    }
-    const timeChangeHandle = (e) => {
-        setTime(e.target.value);
-    }
+    const dateRef = useRef();
+    const planRef = useRef();
+    const timeRef = useRef();
     const changeMonth = (month) => {
+        console.log(month)
         switch (month) {
             case 1:
                 return '一月';
@@ -38,12 +29,15 @@ export default function Index(props) {
                 return '十月';
             case 11:
                 return '十一月';
-            default:
+            case 12:
                 return '十二月';
         }
     }
     const addHandle = (e) => {
         e.preventDefault();
+        const date = dateRef.current.value;
+        const plan = planRef.current.value;
+        const time = timeRef.current.value;
         if (!date && !plan && !time) {
             alert('有的选项没有填写！');
             return;
@@ -57,23 +51,20 @@ export default function Index(props) {
             time: time,
         }
         props.getData(obj);
-        setDate("");
-        setPlan("");
-        setTime("");
     }
     return (
         <form>
             <div>
                 <label htmlFor="date">日期</label>
-                <input id='date' type={"date"} value={date} onChange={dateChangeHandle} />
+                <input id='date' type={"date"} ref={dateRef} />
             </div>
             <div>
                 <label htmlFor="text">计划</label>
-                <input id='text' type={"text"} value={plan} onChange={planChangeHandle} />
+                <input id='text' type={"text"} ref={planRef} />
             </div>
             <div>
                 <label htmlFor="number">时长</label>
-                <input id='number' type={"number"} value={time} onChange={timeChangeHandle} />
+                <input id='number' type={"number"} ref={timeRef} />
             </div>
             <button onClick={addHandle} >添加</button>
         </form>

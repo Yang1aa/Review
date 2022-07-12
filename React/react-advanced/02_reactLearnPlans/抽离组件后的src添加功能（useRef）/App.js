@@ -38,7 +38,7 @@ export default function App() {
     const getData = (obj) => {
         obj.id = `${data.length + 1}`;
         console.log(obj);
-        setData([obj, ...data]);
+        setData([...data, obj]);
     }
 
     return (

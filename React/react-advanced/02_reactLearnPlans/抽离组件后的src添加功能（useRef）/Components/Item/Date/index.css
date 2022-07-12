@@ -1,0 +1,28 @@
+.date {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.date>div:first-child {
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    text-align: center;
+    line-height: 30px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.date>div:last-child {
+    width: 100px;
+    height: 70px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    line-height: 70px;
+}
