@@ -7,19 +7,20 @@ let Rand = (max) => {
     return arr;
 }
 let f = (arr) => {
-    if (!arr.length || arr.length < 2) {
+    console.log(arr);
+    if (arr.length < 2) {
         return arr;
     }
-    for (let i = arr.length - 1; i >= 0; i--) {
-        for (let j = 1; j <= i; j++) {
-            if (arr[j - 1] > arr[j]) {
-                let tmp = arr[j - 1];
-                arr[j - 1] = arr[j];
-                arr[j] = tmp;
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
-
     }
     return arr;
 }
-console.log(f(Rand(10)))
+console.log(f(Rand(10)));
