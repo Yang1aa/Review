@@ -1,6 +1,6 @@
 import React from 'react'
 import "./App.css"
-import Item from "./Cmponents/Item/index.js"
+import Item from "./Components/Item/index.js"
 
 
 export default function App() {
