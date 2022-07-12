@@ -9,31 +9,32 @@
 </head>
 
 <body>
+    <label for=""></label>
     <script>
-let Rand = (max) => {
-    let arr = [];
-    let N = Math.floor(Math.random() * max);
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 100));
-    }
-    return arr;
-}
-let f = (arr) => {
-    console.log(arr);
-    if (arr.length < 2) {
-        return arr;
-    }
-    let len = arr.length;
-    for (let i = 0; i < len - 1; i++) {
-        for (let j = i + 1; arr[j] < arr[j - 1] && j > 0; j--) {
-            let temp = arr[j];
-            arr[j] = arr[j - 1];
-            arr[j - 1] = temp;
+        let Rand = (max) => {
+            let arr = [];
+            let N = Math.floor(Math.random() * max);
+            for (let i = 0; i < N; i++) {
+                arr.push(Math.floor(Math.random() * 100));
+            }
+            return arr;
         }
-    }
-    return arr;
-}
-console.log(f(Rand(10)));
+        let f = (arr) => {
+            console.log(arr);
+            if (arr.length < 2) {
+                return arr;
+            }
+            let len = arr.length;
+            for (let i = 0; i < len - 1; i++) {
+                for (let j = i + 1; arr[j] < arr[j - 1] && j > 0; j--) {
+                    let temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+            return arr;
+        }
+        console.log(f(Rand(10)));
     </script>
 </body>
 

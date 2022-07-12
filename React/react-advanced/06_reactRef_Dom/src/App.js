@@ -13,7 +13,7 @@ export default function App() {
         nativeDom.innerHTML = 'hello native!';
     }
     // react提供的方法获取Dom,此方法只能在App函数里面，不能再去包裹其他函数或作用域
-    
+
     // const h1Ref = { current: null };
     // console.log(h1Ref === temp);
     // temp = h1Ref;
@@ -22,7 +22,7 @@ export default function App() {
     console.log(ref === temp);
     temp = ref;
 
-    
+
     const reactClickHandle = () => {
         console.log(ref.current);
         ref.current.innerHTML = 'hello react!'
@@ -32,7 +32,7 @@ export default function App() {
         setCount(pre => pre + 1);
     }
     return (
-        <div id='content'>
+        <div id='content' ref={ref}>
             <h1 id='header' >hello Word!</h1>
             <div>
                 <button onClick={nativeClickHandle}>Native click</button>
