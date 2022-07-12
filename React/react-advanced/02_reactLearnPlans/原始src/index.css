@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.div {
+    width: 100%;
+    background-color: aqua;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+.li {
+    height: 100px;
+    background-color: yellow;
+    margin: 5px 10px;
+    padding: 5px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.li .date {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.li .date>div:first-child {
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    text-align: center;
+    line-height: 30px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.li .date>div:last-child {
+    width: 100px;
+    height: 70px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.li .plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+.li .plan span:first-child {
+    display: block;
+    font-size: large;
+    font-weight: bold;
+}
+
+.li .plan span:last-child {
+    display: block;
+    color: red;
+    font-weight: bold;
+}

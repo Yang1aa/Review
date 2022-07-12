@@ -12,17 +12,30 @@
 </head>
 
 <body>
+    <button id="btn">click me</button>
     <div id="root"></div>
     <script type="text/babel">
-let arr = ['孙悟空', '猪八戒', '沙和尚'];
-let ul = <ul>
-    {arr.map((item, index) => {
-        return <li key={index}>{item}</li>
-    })}
-</ul>;
 
-let root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(ul)
+        const btn = document.getElementById('btn');
+        const arr = ['孙悟空', '猪八戒', '沙和尚'];
+        const ul = <ul>
+            {arr.map((item) => {
+                return <li key={item}>{item}</li>
+            })}
+        </ul>;
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(ul)
+
+
+        btn.onclick = () => {
+            const arr = ['猪八戒', '孙悟空', '沙和尚'];
+            const ul = <ul>
+                {arr.map((item) => {
+                    return <li key={item}>{item}</li>
+                })}
+            </ul>;
+            root.render(ul)
+        }
     </script>
 </body>
 
