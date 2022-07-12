@@ -56,7 +56,7 @@ export default function Index(props) {
             plan: plan,
             time: time,
         }
-        props.getData(obj);
+        props.getAddData(obj);
         setDate("");
         setPlan("");
         setTime("");

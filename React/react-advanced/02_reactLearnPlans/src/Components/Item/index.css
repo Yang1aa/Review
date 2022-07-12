@@ -6,3 +6,18 @@
     display: flex;
     border-radius: 10px;
 }
+
+.li .delete {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.li .delete:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    cursor:pointer;
+}

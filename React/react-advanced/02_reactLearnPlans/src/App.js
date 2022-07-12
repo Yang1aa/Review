@@ -35,20 +35,26 @@ export default function App() {
         },
     ])
 
-    const getData = (obj) => {
+    const getAddData = (obj) => {
         obj.id = `${data.length + 1}`;
         console.log(obj);
         setData([obj, ...data]);
     }
+    const getDetelteData = (id) => {
+        const arr = data.filter((item) => {
+            return item.id !== id;
+        });
+        setData([...arr]);
+    }
 
     return (
         <div className="div">
-            <Form getData={getData} />
+            <Form getAddData={getAddData} />
             <ul>
                 {
                     data.map((item) => {
                         return (
-                            <Item item={item} key={item.id} />
+                            <Item item={item} key={item.id} getDetelteData={getDetelteData} />
                         )
                     })
                 }
