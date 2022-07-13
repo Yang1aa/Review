@@ -1,0 +1,26 @@
+.search {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-color: yellow;
+    margin: 5px 10px;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.search:hover {
+    background-color: rgb(255, 191, 0)
+}
+
+.search .select {
+    flex: 0.3;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 30px;
+}

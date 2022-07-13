@@ -52,11 +52,9 @@ export default function Index(props) {
             alert('有的选项没有填写！');
             return;
         }
-        const year = date.slice(0, date.lastIndexOf('-'));
         const day = date.slice(date.lastIndexOf('-') + 1);
         const month = +date.slice(date.indexOf('-') + 1, date.lastIndexOf('-'));
         let obj = {
-            year: year,
             month: changeMonth(month),
             day: day,
             plan: plan,

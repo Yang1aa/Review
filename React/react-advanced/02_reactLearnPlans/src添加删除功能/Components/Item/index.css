@@ -7,9 +7,6 @@
     border-radius: 10px;
 }
 
-.li:hover {
-    background-color: rgb(255, 191, 0)
-}
 .li .delete {
     width: 20px;
     height: 20px;
@@ -22,5 +19,5 @@
 .li .delete:hover {
     background-color: rgba(255, 0, 0, 0.7);
     color: white;
-    cursor: pointer;
+    cursor:pointer;
 }

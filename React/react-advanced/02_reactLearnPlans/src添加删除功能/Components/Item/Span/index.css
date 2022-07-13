@@ -1,0 +1,19 @@
+.plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+.plan span:first-child {
+    display: block;
+    font-size: large;
+    font-weight: bold;
+}
+
+.plan span:last-child {
+    display: block;
+    color: red;
+    font-weight: bold;
+}
