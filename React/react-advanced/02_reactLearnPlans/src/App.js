@@ -52,11 +52,11 @@ export default function App() {
             <Form getAddData={getAddData} />
             <ul>
                 {
-                    data.map((item) => {
+                    data.length ? (data.map((item) => {
                         return (
                             <Item item={item} key={item.id} getDetelteData={getDetelteData} />
                         )
-                    })
+                    })) : (<li className="noPlan">没有 Todo List!</li>)
                 }
             </ul>
         </div>

@@ -12,6 +12,10 @@ export default function Index(props) {
         setPlan(e.target.value);
     }
     const timeChangeHandle = (e) => {
+        if (+e.target.value <= 0) {
+            alert("时长不能小于0分钟！");
+            return;
+        }
         setTime(e.target.value);
     }
     const changeMonth = (month) => {
@@ -44,7 +48,7 @@ export default function Index(props) {
     }
     const addHandle = (e) => {
         e.preventDefault();
-        if (!date && !plan && !time) {
+        if (!date || !plan || !time) {
             alert('有的选项没有填写！');
             return;
         }
