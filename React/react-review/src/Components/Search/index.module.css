@@ -1,0 +1,16 @@
+.content {
+    height: 70rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    width: 90%;
+    height: 60rem;
+    border-radius: 25rem;
+    padding: 0rem 16rem;
+    border: 0px;
+    background-color: #eee;
+    font-size:18rem;
+}

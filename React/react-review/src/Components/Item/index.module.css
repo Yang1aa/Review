@@ -1,0 +1,53 @@
+.content {
+    background-color: #eee;
+    overflow: hidden;
+}
+
+img {
+    width: 200rem;
+    height: 200rem;
+}
+
+.item {
+    height: 220rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0rem 30rem 0rem 0rem;
+    margin: 4rem 0;
+}
+
+.name {
+    height: 60rem;
+    font-size: 40rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.message {
+    width: 100%;
+    height: 100rem;
+    display: inline-block;
+    word-break: break-all;
+    color: gray;
+    font-size: 16rem;
+    padding: 5rem 0;
+}
+
+.bottom {
+    height: 40rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: black;
+    font-size: 28rem;
+    font-weight: bold;
+}
+.null{
+    color: black;
+    font-size: 36rem;
+    font-weight: bold;
+}

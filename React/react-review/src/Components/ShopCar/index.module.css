@@ -1,0 +1,73 @@
+.content {
+    height: 80rem;
+    width: 90%;
+    position: fixed;
+    bottom: 50rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: rgb(58, 58, 58);
+    padding: 0 40rem;
+    border-radius: 50rem;
+}
+
+.content img {
+    width: 100rem;
+    height: 120rem;
+}
+
+.bag {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+}
+
+.bag span {
+    color: rgb(136, 137, 139);
+    font-weight: bold;
+    font-size: medium;
+    line-height: 80rem;
+    margin-left: 16rem;
+}
+
+.submit {
+    width: 200rem;
+    height: 80rem;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    background-color: rgb(108, 107, 107);
+    line-height: 80rem;
+    border-radius: 50rem;
+    color: rgb(136, 137, 139);
+    font-weight: bold;
+    font-size: small;
+    overflow: hidden;
+}
+
+.priceColor {
+    background-color: rgb(248, 188, 0);
+    color: black;
+}
+
+.spanColor {
+    color: white !important;
+}
+
+.number{
+    position: absolute;
+    left:66rem;
+    bottom: 66rem;
+    width: 46rem;
+    height: 46rem;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 46rem;
+    font-weight: bolder;
+}
