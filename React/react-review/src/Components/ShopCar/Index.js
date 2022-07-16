@@ -4,10 +4,11 @@ export default function ShopCar(props) {
     const bagHandle = () => {
         console.log("bag")
     }
+    console.log('props.sumPrice', props.sumPrice)
     return (
         <div className={style.content}>
             <div className={style.bag}>
-                <div className={`${props.sumPrice && style.number}`}>{props.count}</div>
+                <div className={`${!props.sumPrice ? style.none : style.num}`}>{props.count}</div>
                 <img src={require("./image/bag.png")} alt="图片加载失败" onClick={bagHandle} />
                 <span className={`${props.sumPrice && style.spanColor}`}>{props.sumPrice > 0 ? `￥${props.sumPrice}` : "未选择商品"}</span>
             </div>

@@ -58,9 +58,9 @@
     color: white !important;
 }
 
-.number{
+.num {
     position: absolute;
-    left:66rem;
+    left: 66rem;
     bottom: 66rem;
     width: 46rem;
     height: 46rem;
@@ -70,4 +70,7 @@
     text-align: center;
     line-height: 46rem;
     font-weight: bolder;
+}
+.none{
+    display: none;
 }
