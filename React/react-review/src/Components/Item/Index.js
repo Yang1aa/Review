@@ -11,13 +11,16 @@ export default function Item(props) {
             price,
             count
         }
-        let newObj = [...menuData];
+        console.log('obj', obj);
+        let newObj = props.menuData.length ? [...props.menuData] : [...menuData];
         if (newObj.length) {
             let isEist = false;
             for (let i = 0; i < newObj.length; i++) {
                 if (newObj[i].id === id) {
-                    if (count === 0)
+                    if (count === 0) {
                         newObj.splice(i, 1);
+                        console.log(newObj)
+                    }
                     else
                         newObj[i].count = count;
                     isEist = true;
@@ -32,6 +35,7 @@ export default function Item(props) {
         newObj = newObj.sort((a, b) => {
             return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
         })
+        console.log('newObj', newObj);
         setMenuData([...newObj]);
         props.setMenuData([...newObj]);
     }

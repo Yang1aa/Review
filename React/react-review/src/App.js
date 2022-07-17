@@ -57,7 +57,7 @@ function App() {
     <div>
       {
         isMenuShow ? <></> : <>
-          {isBagShow && <Cover setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} isBagShow={isBagShow} data={menuData} />}
+          {isBagShow && <Cover setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={menuData} />}
           <Search setName={setName} />
           <Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={data} />
         </>
