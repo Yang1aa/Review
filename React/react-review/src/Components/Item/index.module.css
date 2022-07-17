@@ -65,7 +65,17 @@ img {
     background-color: white;
     text-align: center;
     padding: 40rem;
-    line-height: 300rem;
+    line-height: 220rem;
+    font-size: small;
+    font-weight: bold;
+}
+
+.notget {
+    height: 300rem;
+    background-color: white;
+    text-align: center;
+    padding: 40rem;
+    line-height: 220rem;
     font-size: small;
     font-weight: bold;
 }
