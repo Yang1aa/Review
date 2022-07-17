@@ -11,6 +11,7 @@
     background-color: rgb(58, 58, 58);
     padding: 0 40rem;
     border-radius: 50rem;
+    z-index: 9;
 }
 
 .content img {
@@ -70,7 +71,9 @@
     text-align: center;
     line-height: 46rem;
     font-weight: bolder;
+    z-index: 10;
 }
-.none{
+
+.none {
     display: none;
 }

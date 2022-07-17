@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import style from './index.module.css'
 export default function ShopCar(props) {
-    const [isBagShow, setIsBagShow] = useState(false);
-    const [isMenuShow, setIsMenuShow] = useState(false);
     const bagHandle = () => {
-        console.log("bag", props.menuData)
-        setIsBagShow(true);
+        console.log("bag")
+        props.setIsBagShow((pre) => !pre);
     }
     const menuHandle = () => {
-        console.log("menu", props.menuData)
-        setIsMenuShow(true);
+        console.log("menu")
+        props.setIsMenuShow(true);
     }
     return (
         <div className={style.content}>
