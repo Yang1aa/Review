@@ -17,6 +17,12 @@ img {
     margin: 4rem 0;
 }
 
+.context{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .name {
     height: 60rem;
     font-size: 40rem;

@@ -52,17 +52,18 @@ function App() {
       message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
     }
   ])
+  const [bagClick, setBagClick] = useState(false);
   console.log(count, count)
   return (
     <div>
       {
         isMenuShow ? <></> : <>
-          {isBagShow && <Cover setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={menuData} />}
+          {isBagShow && <Cover setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={menuData} isBagShow={isBagShow} bagClick={bagClick} />}
           <Search setName={setName} />
-          <Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={data} />
+          <Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={data} isBagShow={isBagShow} bagClick={bagClick} />
         </>
       }
-      <ShopCar sumPrice={sumPrice} count={count} setIsBagShow={setIsBagShow} setIsMenuShow={setIsMenuShow} />
+      <ShopCar sumPrice={sumPrice} count={count} setIsBagShow={setIsBagShow} setIsMenuShow={setIsMenuShow} setBagClick={setBagClick} />
     </div >
   );
 }

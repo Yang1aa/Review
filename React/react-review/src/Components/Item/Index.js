@@ -11,16 +11,13 @@ export default function Item(props) {
             price,
             count
         }
-        console.log('obj', obj);
         let newObj = props.menuData.length ? [...props.menuData] : [...menuData];
         if (newObj.length) {
             let isEist = false;
             for (let i = 0; i < newObj.length; i++) {
                 if (newObj[i].id === id) {
-                    if (count === 0) {
+                    if (count === 0)
                         newObj.splice(i, 1);
-                        console.log(newObj)
-                    }
                     else
                         newObj[i].count = count;
                     isEist = true;
@@ -35,7 +32,6 @@ export default function Item(props) {
         newObj = newObj.sort((a, b) => {
             return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
         })
-        console.log('newObj', newObj);
         setMenuData([...newObj]);
         props.setMenuData([...newObj]);
     }
@@ -51,7 +47,7 @@ export default function Item(props) {
                                 {!props.isBagShow && <div className={style.message}>{item.message}</div>}
                                 <div className={style.bottom}>
                                     <span className={style.price}>{`￥${item.price}`}</span>
-                                    <Add item={item} setPrice={props.setSumPrice} setCount={props.setCount} setmenuData={setmenuData} />
+                                    <Add item={item} setPrice={props.setSumPrice} setCount={props.setCount} setmenuData={setmenuData} isBagShow={props.isBagShow} bagClick={props.bagClick} menuData={props.menuData} />
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@ import style from './index.module.css'
 export default function ShopCar(props) {
     const bagHandle = () => {
         console.log("bag")
+        props.setBagClick(true);
         props.setIsBagShow((pre) => !pre);
     }
     const menuHandle = () => {
