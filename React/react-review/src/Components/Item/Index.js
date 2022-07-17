@@ -42,30 +42,6 @@ export default function Item(props) {
         }
     ])
     const [menuData, setMenuData] = useState([]);
-    const arrSort = (l, r, arr) => {
-        if (arr.length < 2 || l > r) {
-            return;
-        }
-        let left = l;
-        let right = r;
-        let key = l;
-        console.log('key', key)
-        while (l < r) {
-            while (+arr[r].id > arr[key].id && r > l) {
-                r--;
-            } while (+arr[l].id < arr[key].id && r > l) {
-                l--;
-            }
-            let temp = arr[r];
-            arr[r] = arr[l];
-            arr[l] = temp;
-        }
-        let temp = arr[r];
-        arr[r] = arr[left];
-        arr[left] = temp;
-        arrSort(left, r - 1, arr)
-        arrSort(r + 1, right, arr)
-    }
     const setmenuData = (id, name, price, count) => {
         let obj = {
             id,
@@ -89,7 +65,9 @@ export default function Item(props) {
         } else
             newObj.push(obj);
         console.log(newObj)
-        arrSort(0, newObj.length - 1, newObj);
+        newObj = newObj.sort((a, b) => {
+            return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
+        })
         setMenuData([...newObj]);
         props.setMenuData([...newObj]);
     }
