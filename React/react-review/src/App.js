@@ -53,7 +53,7 @@ function App() {
     }
   ])
   const [bagClick, setBagClick] = useState(false);
-  console.log(count, count)
+  console.log(menuData, menuData)
   return (
     <div>
       {

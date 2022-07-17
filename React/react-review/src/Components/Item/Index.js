@@ -3,7 +3,6 @@ import Add from './Add'
 import style from "./index.module.css"
 
 export default function Item(props) {
-    const [menuData, setMenuData] = useState([]);
     const setmenuData = (id, name, price, count) => {
         let obj = {
             id,
@@ -11,13 +10,16 @@ export default function Item(props) {
             price,
             count
         }
-        let newObj = props.menuData.length ? [...props.menuData] : [...menuData];
+        // console.log('obj', obj)
+        // console.log('props.menuData1', props.menuData)
+        let newObj = props.menuData.length ? [...props.menuData] : [];
         if (newObj.length) {
             let isEist = false;
             for (let i = 0; i < newObj.length; i++) {
                 if (newObj[i].id === id) {
-                    if (count === 0)
+                    if (count <= 0) {
                         newObj.splice(i, 1);
+                    }
                     else
                         newObj[i].count = count;
                     isEist = true;
@@ -32,8 +34,9 @@ export default function Item(props) {
         newObj = newObj.sort((a, b) => {
             return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
         })
-        setMenuData([...newObj]);
+        // console.log('newObj2', newObj)
         props.setMenuData([...newObj]);
+        // console.log('props.menuData2', props.menuData)
     }
     return (
         <div className={style.content}>
@@ -53,6 +56,12 @@ export default function Item(props) {
                         </div>
                     )
                 })
+            }
+            {!props.data.length &&
+                <div className={style.getbottom} >还没添加商品~</div>
+            }
+            {props.data.length &&
+                <div className={style.getbottom} >已经到底了~</div>
             }
         </div>
     )

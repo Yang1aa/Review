@@ -17,12 +17,13 @@ img {
     margin: 4rem 0;
 }
 
-.context{
+.context {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .name {
     height: 60rem;
     font-size: 40rem;
@@ -52,8 +53,17 @@ img {
     font-size: 28rem;
     font-weight: bold;
 }
-.null{
+
+.null {
     color: black;
     font-size: 36rem;
     font-weight: bold;
+}
+
+.getbottom {
+    height: 220rem;
+    background-color: white;
+    text-align: center;
+    padding: 40rem;
+    line-height: 220rem;
 }
