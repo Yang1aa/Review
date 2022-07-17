@@ -61,9 +61,11 @@ img {
 }
 
 .getbottom {
-    height: 220rem;
+    height: 300rem;
     background-color: white;
     text-align: center;
     padding: 40rem;
-    line-height: 220rem;
+    line-height: 300rem;
+    font-size: small;
+    font-weight: bold;
 }

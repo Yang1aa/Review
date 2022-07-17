@@ -60,9 +60,7 @@ export default function Item(props) {
             {!props.data.length &&
                 <div className={style.getbottom} >还没添加商品~</div>
             }
-            {props.data.length &&
-                <div className={style.getbottom} >已经到底了~</div>
-            }
+            {!props.isBagShow && <div className={style.getbottom} >已经到底了~</div>}
         </div>
     )
 }
