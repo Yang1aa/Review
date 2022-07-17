@@ -10,15 +10,13 @@ function App() {
   const [name, setName] = useState('');
   const [sumPrice, setSumPrice] = useState(0);
   const [count, setCount] = useState(0);
-  console.log("sumPrice", sumPrice)
-  console.log("count", count)
-  console.log("name", name)
+  const [menuData, setMenuData] = useState([]);
   return (
     <div>
       <Search setName={setName}></Search>
-      <Item setSumPrice={setSumPrice} setCount={setCount} name={name}></Item>
-      <ShopCar sumPrice={sumPrice} count={count}></ShopCar>
-    </div>
+      <Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData}></Item>
+      <ShopCar sumPrice={sumPrice} count={count} menuData={menuData}></ShopCar>
+    </div >
   );
 }
 

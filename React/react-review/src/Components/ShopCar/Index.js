@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './index.module.css'
 export default function ShopCar(props) {
+    const [isBagShow, setIsBagShow] = useState(false);
+    const [isMenuShow, setIsMenuShow] = useState(false);
     const bagHandle = () => {
-        console.log("bag")
+        console.log("bag", props.menuData)
+        setIsBagShow(true);
     }
-    console.log('props.sumPrice', props.sumPrice)
+    const menuHandle = () => {
+        console.log("menu", props.menuData)
+        setIsMenuShow(true);
+    }
     return (
         <div className={style.content}>
             <div className={style.bag}>
@@ -13,7 +19,7 @@ export default function ShopCar(props) {
                 <span className={`${props.sumPrice && style.spanColor}`}>{props.sumPrice > 0 ? `￥${props.sumPrice}` : "未选择商品"}</span>
             </div>
             <div className={style.submit}>
-                <div className={`${props.sumPrice && style.priceColor}`}>去结算</div>
+                <div className={`${props.sumPrice && style.priceColor}`} onClick={menuHandle}>去结算</div>
             </div>
         </div >
     )

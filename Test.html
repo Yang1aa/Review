@@ -27,14 +27,70 @@
 
 <body>
     <script>
-        let name = ""
-        if (name) {
-            console.log(
-                "y"
-            )
+        let newObj = [
+            {
+                id: '1',
+                name: '汉堡1',
+                price: 11,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            },
+            {
+                id: '3',
+                name: '汉堡3',
+                price: 13,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            },
+            {
+                id: '6',
+                name: '汉堡6',
+                price: 16,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            },
+            {
+                id: '2',
+                name: '汉堡2',
+                price: 12,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            },
+            {
+                id: '4',
+                name: '汉堡4',
+                price: 14,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            },
+            {
+                id: '5',
+                name: '汉堡5',
+                price: 15,
+                message: '微干，里面搭配清凉的酸黄瓜加上洋葱圈和西红柿加上牛肉芝士正好，可以加两层牛肉饼',
+            }
+        ]
+        const arrSort = (l, r, arr) => {
+            if (arr.length < 2 || l >= r) {
+                return;
+            }
+            let left = l;
+            let right = r;
+            let key = arr[l].id;
+            console.log('key', key)
+            while (l < r) {
+                while (arr[r].id > key && r > l) {
+                    r--;
+                } while (arr[l].id < key && r > l) {
+                    l--;
+                }
+                let temp = arr[r];
+                arr[r] = arr[l];
+                arr[l] = temp;
+            }
+            let temp = arr[r];
+            arr[r] = arr[left];
+            arr[left] = temp;
+            arrSort(left, r - 1, arr)
+            arrSort(r + 1, right, arr)
         }
-        else
-            console.log("n")
+        console.log(newObj)
+        arrSort(0, newObj.length - 1, newObj);
     </script>
 </body>
 

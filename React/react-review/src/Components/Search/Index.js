@@ -6,6 +6,7 @@ export default function Search(props) {
       console.log("回车");
       console.log(e.target.value)
       props.setName(e.target.value)
+      e.target.value = "";
     }
   }
   return (
