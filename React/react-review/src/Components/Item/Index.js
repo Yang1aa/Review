@@ -41,7 +41,7 @@ export default function Item(props) {
     return (
         <div className={style.content}>
             {
-                props.data.length?props.data.map((item) => {
+                props.data.length ? props.data.map((item) => {
                     return (
                         <div key={item.id} className={style.item}>
                             <img src={require(`../../../public/images/${item.id}.png`)} alt="图片加载失败" className={style.img} />
@@ -55,7 +55,7 @@ export default function Item(props) {
                             </div>
                         </div>
                     )
-                }):<div className = {style.notget}>没有该商品</div>
+                }) : !props.isBagShow && <div className={style.notget}>没有该商品</div>
             }
             {!props.data.length && props.isBagShow && <div className={style.getbottom} >还没添加商品~</div>}
             <div className={style.getbottom} ></div>

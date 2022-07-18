@@ -1,11 +1,12 @@
-import './App.css';
+import { useEffect, useState } from 'react';
 import Search from './Components/Search/Index';
 import Item from './Components/Item/Index';
 import ShopCar from './Components/ShopCar/Index';
 import Cover from './Components/Cover/index';
-import { useEffect, useState } from 'react';
+import './App.css';
 
 document.documentElement.style.fontSize = 100 / 750 + 'vw'
+document.documentElement.style.fontSize = 100 / 1334 + 'vh'
 
 function App() {
   const [name, setName] = useState('');
@@ -102,9 +103,9 @@ function App() {
     }
   }, [name])
   return (
-    <div>
+    <div className='root'>
       {
-        isMenuShow ? <>123</> : <>
+        isMenuShow ? <><Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={menuData} isBagShow={isBagShow} bagClick={bagClick} /></> : <>
           {isBagShow && <Cover setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={menuData} isBagShow={isBagShow} bagClick={bagClick} />}
           <Search setName={setName} />
           <Item setSumPrice={setSumPrice} setCount={setCount} setMenuData={setMenuData} menuData={menuData} data={showData} isBagShow={isBagShow} bagClick={bagClick} />
