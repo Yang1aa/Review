@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
-
+import React, { useCallback, useState } from 'react'
+import A from './Components/A'
 export default function App() {
-    const [count, setCount] = useEffect(0);
-    const addHandler = () => {
+    console.log('App组件渲染')
+    const [count, setCount] = useState(0);
+    const addHandler = useCallback(() => {
         setCount((pre) => pre + 1);
-    }
+    },[])
     return (
         <div>
             <h1>App组件：{count}</h1>
             <button onClick={addHandler}>+</button>
-            <A setCount={setCount}></A>
+            <A addHandler={addHandler}></A>
         </div>
     )
 }
