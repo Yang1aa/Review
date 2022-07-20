@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useCallback, useContext, useState } from "react";
+
 import StudentList from "./StundentList";
 
 export default function Stundent(props) {
   const { data } = props;
-  console.log(data);
+
   return (
     <div>
-      {data.map((item) => {
-        return <StudentList item={item.attributes} key={item.id} />;
-      })}
+      {
+        data.map((item) => {
+          console.log('item',item)
+          return (
+            <React.Fragment key={item.id}>
+              <div>
+                <StudentList item={item} />
+              </div>
+            </React.Fragment>
+          );
+        })}
     </div>
   );
 }

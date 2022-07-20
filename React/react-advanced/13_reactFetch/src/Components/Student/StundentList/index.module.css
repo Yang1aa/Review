@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px;
+}
+
+p {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    color: black;
+    font-size: x-large;
+}
