@@ -83,9 +83,7 @@ export default function Stundent(props) {
             <div className={style.width}>
               <h1>地址</h1>
             </div>
-            <Button type="primary">
-              操作
-            </Button>
+            <Button type="primary">操作</Button>
           </div>
           {data.map((item) => {
             return (
