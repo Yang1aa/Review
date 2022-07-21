@@ -1,17 +1,20 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Button } from "antd";
-
 import StudentContext from "../../../store/StudentContext";
 import style from "./index.module.css";
 
 export default function StudentAdd(props) {
   const ctx = useContext(StudentContext);
-  const [addMessage, setAddMessage] = useState({
-    name: "",
-    age: "",
-    sex: "男",
-    address: "",
-  });
+  const [addMessage, setAddMessage] = useState(
+    props.isModify
+      ? props.data.attributes
+      : {
+          name: "",
+          age: "",
+          sex: "男",
+          address: "",
+        }
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const nameHandle = (e) => {
@@ -63,8 +66,15 @@ export default function StudentAdd(props) {
     addData();
     ctx.fetchData();
   };
+  const modifyHandle = () => {
+    console.log("确认修改");
+  };
+  const cancleModifyHandle = () => {
+    props.setIsModify(false);
+    console.log("取消修改");
+  };
   return (
-    <div>
+    <div className={style.content}>
       {!loading && !error && (
         <div className={`${!props.isModify ? style.add : style.addModify}`}>
           <div className={style.width}>
@@ -105,9 +115,21 @@ export default function StudentAdd(props) {
             />
           </div>
           <div className={style.width}>
-            <Button type="primary" onClick={commitHandle}>
-              添加
-            </Button>
+            {!props.isModify && (
+              <Button type="primary" onClick={commitHandle}>
+                添加
+              </Button>
+            )}
+            {props.isModify && (
+              <div className={style.widthModify}>
+                <Button type="primary" onClick={modifyHandle}>
+                  确定
+                </Button>
+                <Button type="primary" onClick={cancleModifyHandle}>
+                  取消
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useContext } from "react";
 import { Button, Modal } from "antd";
 import StudentContext from "../../../store/StudentContext";
+import StudentAdd from "../StudentAdd/index";
 import style from "./index.module.css";
 
 export default function StudentList(props) {
@@ -93,6 +94,13 @@ export default function StudentList(props) {
           {loading && !error && <p>数据正在删除...</p>}
           {error && <p>{error}</p>}
         </div>
+      )}
+      {isModify && (
+        <StudentAdd
+          isModify={isModify}
+          setIsModify={setIsModify}
+          data={props.item}
+        />
       )}
     </>
   );
