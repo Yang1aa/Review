@@ -64,7 +64,7 @@ export default function StudentList(props) {
                 <h2>{props.item.attributes.address}</h2>
               </div>
               <div className={style.width}>
-                <Button type="primary" onClick={deleteHandle}>
+                <Button type="primary" onClick={deleteHandle} danger>
                   删除
                 </Button>
                 <Button type="primary" onClick={modifyHandle}>

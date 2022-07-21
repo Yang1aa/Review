@@ -1,10 +1,11 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import StudentContext from "../../../store/StudentContext";
 import style from "./index.module.css";
 
 export default function StudentAdd(props) {
   const ctx = useContext(StudentContext);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [addMessage, setAddMessage] = useState(
     props.isModify
       ? props.data.attributes
@@ -17,6 +18,16 @@ export default function StudentAdd(props) {
   );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const handleOk = () => {
+    setIsModalVisible(false);
+    modifyData();
+    ctx.fetchData();
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    props.setIsModify(false);
+  };
   const nameHandle = (e) => {
     setAddMessage((pre) => {
       return { ...pre, name: e.target.value };
@@ -94,10 +105,9 @@ export default function StudentAdd(props) {
     ctx.fetchData();
   };
   const modifyHandle = () => {
+    setIsModalVisible(true);
     console.log(props.data.id);
     console.log("确认修改");
-    modifyData();
-    ctx.fetchData();
   };
   const cancleModifyHandle = () => {
     props.setIsModify(false);
@@ -160,6 +170,24 @@ export default function StudentAdd(props) {
                   <Button type="primary" onClick={cancleModifyHandle}>
                     取消
                   </Button>
+                  <Modal
+                    visible={isModalVisible}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                    okText="确认"
+                    cancelText="取消"
+                  >
+                    <h3
+                      style={{
+                        textAlign: "center",
+                        fontSize: "20px",
+                        fontWeight: "500",
+                        marginTop: "10px",
+                      }}
+                    >
+                      确定修改吗？
+                    </h3>
+                  </Modal>
                 </div>
               )}
             </div>
