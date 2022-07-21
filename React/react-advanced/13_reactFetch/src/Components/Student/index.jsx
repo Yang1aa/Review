@@ -83,9 +83,9 @@ export default function Stundent(props) {
             <div className={style.width}>
               <h1>地址</h1>
             </div>
-            <Button type="primary">
-              操作
-            </Button>
+            <div className={style.width}>
+              <Button type="primary">操作</Button>
+            </div>
           </div>
           {data.map((item) => {
             return (
@@ -134,9 +134,11 @@ export default function Stundent(props) {
                 value={addMessage.address}
               />
             </div>
-            <Button type="primary" onClick={commitHandle}>
-              添加
-            </Button>
+            <div className={style.width}>
+              <Button type="primary" onClick={commitHandle}>
+                添加
+              </Button>
+            </div>
           </div>
         </>
       )}

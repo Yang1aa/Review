@@ -12,3 +12,9 @@ h2 {
     font-size: x-large;
     font-weight: bold;
 }
+
+.width {
+    width: 240px;
+    display: flex;
+    justify-content: space-evenly;
+}
