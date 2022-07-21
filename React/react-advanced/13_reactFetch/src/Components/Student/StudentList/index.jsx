@@ -91,8 +91,8 @@ export default function StudentList(props) {
               </Modal>
             </>
           )}
-          {loading && !error && <p>数据正在删除...</p>}
-          {error && <p>{error}</p>}
+          {loading && !error && !isModify && <p>数据正在删除...</p>}
+          {error && !isModify && <p>{error}</p>}
         </div>
       )}
       {isModify && (

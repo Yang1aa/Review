@@ -21,9 +21,7 @@ export default function StudentAdd(props) {
   const handleOk = () => {
     setIsModalVisible(false);
     modifyData();
-    ctx.fetchData();
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
     props.setIsModify(false);
@@ -63,7 +61,7 @@ export default function StudentAdd(props) {
         },
       });
       if (res.ok) {
-        setLoading(false);
+        ctx.fetchData();
       } else {
         throw new Error("添加出错");
       }
@@ -90,7 +88,7 @@ export default function StudentAdd(props) {
         }
       );
       if (res.ok) {
-        setLoading(false);
+        ctx.fetchData();
       } else {
         throw new Error("添加出错");
       }
@@ -102,7 +100,6 @@ export default function StudentAdd(props) {
   }, [addMessage]);
   const commitHandle = () => {
     addData();
-    ctx.fetchData();
   };
   const modifyHandle = () => {
     setIsModalVisible(true);
@@ -115,9 +112,8 @@ export default function StudentAdd(props) {
   };
   return (
     <>
-      {props.isModify && <div className={style.cover}></div>}
-      <div className={style.content}>
-        {!loading && !error && (
+      {!loading && (
+        <div className={style.content}>
           <div className={`${!props.isModify ? style.add : style.addModify}`}>
             <div className={style.width}>
               <input
@@ -192,10 +188,20 @@ export default function StudentAdd(props) {
               )}
             </div>
           </div>
-        )}
-        {loading && !error && <p>正在添加信息...</p>}
-        {error && <p>添加信息错误！</p>}
-      </div>
+        </div>
+      )}
+      {props.isModify ? (
+        <>
+          <div className={style.cover} />
+          {loading && !error && <p>正在修改信息...</p>}
+          {error && <p>修改信息错误！</p>}
+        </>
+      ) : (
+        <>
+          {loading && !error && <p>正在添加信息...</p>}
+          {error && <p>添加信息错误！</p>}
+        </>
+      )}
     </>
   );
 }
