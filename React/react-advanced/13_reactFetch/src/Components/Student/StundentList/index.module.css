@@ -1,17 +1,14 @@
 .content {
+    width: 100%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 
-h1 {
+h2 {
     margin: 20px;
-}
-
-p {
-    position: fixed;
-    bottom: 20%;
-    left: 50%;
-    transform: translate(-50%);
-    color: black;
+    width: 200px;
+    text-align: center;
     font-size: x-large;
+    font-weight: bold;
 }

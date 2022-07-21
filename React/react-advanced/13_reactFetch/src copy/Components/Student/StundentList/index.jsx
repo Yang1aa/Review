@@ -18,6 +18,7 @@ export default function StudentList(props) {
         }
       );
       if (res.ok) {
+        console.log("ttttttttttttttt");
         ctx.fetchData();
       } else {
         setError("删除出错！");
@@ -29,27 +30,24 @@ export default function StudentList(props) {
     }
   }, []);
   const deleteHandle = () => {
-    const isdelete = window.confirm("确定删除吗？");
-    if (isdelete) {
-      console.log(ctx.fetchData);
-      deleteFetch();
-    }
+    console.log(ctx.fetchData);
+    deleteFetch();
   };
   return (
     <div className={style.content}>
       {!loading && (
         <>
           <div>
-            <h2>{props.item.attributes.name}</h2>
+            <h1>姓名：{props.item.attributes.name}</h1>
           </div>
           <div>
-            <h2>{props.item.attributes.sex}</h2>
+            <h1>性别：{props.item.attributes.sex}</h1>
           </div>
           <div>
-            <h2>{props.item.attributes.age}</h2>
+            <h1>年龄：{props.item.attributes.age}</h1>
           </div>
           <div>
-            <h2>{props.item.attributes.address}</h2>
+            <h1>地址：{props.item.attributes.address}</h1>
           </div>
           <Button type="primary" onClick={deleteHandle}>
             删除

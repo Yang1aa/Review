@@ -1,5 +1,10 @@
 .content {
-    margin: 100px auto;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px;
 }
 
 p {
