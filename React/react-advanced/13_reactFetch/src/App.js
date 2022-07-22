@@ -2,31 +2,22 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Button } from 'antd';
 import Stundent from './Components/Student';
 import StudentContext from './store/StudentContext'
+import useFetch from './Hooks/useFetch';
 import style from './App.css'
 export default function App() {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-    const fetchData = useCallback(async () => {
-        try {
-            setLoading(true);
-            setError(null);
-            const res = await fetch('http://localhost:1337/api/students');
-            if (res.ok) {
-                const data = await res.json();
-                console.log('data', data)
-                setData(data.data);
-            } else {
-                throw new Error('数据加载失败！');
-            }
-        } catch (e) {
-            setError(e.message);
-        } finally {
-            setLoading(false);
-        }
-    }, [])
+    const [Data, setData] = useState([]);
+    const {
+        data,
+        loading,
+        error,
+        fetchData,
+    } = useFetch({
+        requestUrl: 'http://localhost:1337/api/students',
+        requestType: 'get',
+    });
     useEffect(() => {
         fetchData();
+        setData(data);
     }, [])
     const loadDataHandler = () => {
         fetchData();

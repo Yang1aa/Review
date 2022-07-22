@@ -3,39 +3,20 @@ import { Button, Modal } from "antd";
 import StudentContext from "../../../store/StudentContext";
 import StudentAdd from "../StudentAdd/index";
 import style from "./index.module.css";
+import useFetch from "../../../Hooks/useFetch";
 
 export default function StudentList(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [isModify, setIsModify] = useState(false);
   const ctx = useContext(StudentContext);
-  const deleteFetch = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const res = await fetch(
-        `http://localhost:1337/api/students/${props.item.id}`,
-        {
-          method: "delete",
-        }
-      );
-      if (res.ok) {
-        ctx.fetchData();
-      } else {
-        setError("删除出错！");
-      }
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const { loading, error, fetchData } = useFetch({
+    requestUrl: `http://localhost:1337/api/students/${props.item.id}`,
+    requestType: "delete",
+  },ctx.fetchData);
   const handleOk = () => {
     setIsModalVisible(true);
-    deleteFetch();
+    fetchData();
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };

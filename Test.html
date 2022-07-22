@@ -1,66 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #grandson {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #son {
-            width: 100px;
-            height: 100px;
-            background-color: rgb(0, 0, 0);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99;
-        }
-
-        #father {
-            width: 50px;
-            height: 50px;
-            background-color: rgb(149, 102, 243);
-        }
-    </style>
 </head>
-
 <body>
-    <div id="father">
-        <div id="son">
-            <div id="grandson">
-            </div>
-        </div>
-    </div>
     <script>
-        let father = document.getElementById('father');
-        let son = document.getElementById('son');
-        let grandson = document.getElementById('grandson');
-        father.onclick = (e) => {
-            // e.stopPropagation();
-            console.log("click father");
-            console.log("e.target_father", e.target);
-        }
-        son.onclick = (e) => {
-            // e.stopPropagation();
-            console.log("click son");
-            console.log("e.target_son", e.target);
-        }
-        grandson.onclick = (e) => {
-            // e.stopPropagation();
-            console.log("e.target_grandson", e.target);
-            console.log("click grandson");
-        }
+        let str = 'aaA';
+        console.log(str.toLowerCase())
     </script>
 </body>
-
 </html>
