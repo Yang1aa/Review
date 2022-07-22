@@ -9,13 +9,10 @@ export default function StudentList(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModify, setIsModify] = useState(false);
   const ctx = useContext(StudentContext);
-  const { loading, error, fetchData } = useFetch(
-    {
-      requestUrl: `students/${props.item.id}`,
-      requestType: "delete",
-    },
-    ctx.fetchData
-  );
+  const { loading, error, fetchData } = useFetch({
+    requestUrl: `http://localhost:1337/api/students/${props.item.id}`,
+    requestType: "delete",
+  },ctx.fetchData);
   const handleOk = () => {
     setIsModalVisible(true);
     fetchData();

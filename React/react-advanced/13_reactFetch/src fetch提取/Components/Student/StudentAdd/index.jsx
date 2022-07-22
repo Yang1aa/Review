@@ -45,25 +45,83 @@ export default function StudentAdd(props) {
       return { ...pre, address: e.target.value };
     });
   };
+  // const addData = useCallback(async () => {
+  //   try {
+  //     setLoading(true);
+  //     setError(null);
+  //     console.log("addMessage", addMessage);
+  //     const res = await fetch("http://localhost:1337/api/students", {
+  //       method: "post",
+  //       body: JSON.stringify({
+  //         data: addMessage,
+  //       }),
+  //       headers: {
+  //         "Content-type": "application/json",
+  //       },
+  //     });
+  //     if (res.ok) {
+  //       ctx.fetchData();
+  //     } else {
+  //       throw new Error("添加出错");
+  //     }
+  //   } catch (e) {
+  //     setError(e.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }, [addMessage]);
   const {
     loading,
     error,
     fetchData: modifyData,
   } = useFetch(
     {
-      requestUrl: props.isModify ? `students/${props.data.id}` : `students/`,
+      requestUrl: props.isModify
+        ? `http://localhost:1337/api/students/${props.data.id}`
+        : `http://localhost:1337/api/students/`,
       requestType: props.isModify ? "put" : "post",
     },
     ctx.fetchData
   );
+
+  // const modifyData = useCallback(async () => {
+  //   try {
+  //     setLoading(true);
+  //     setError(null);
+  //     const res = await fetch(
+  //       `http://localhost:1337/api/students/${props.data.id}`,
+  //       {
+  //         method: "put",
+  //         body: JSON.stringify({
+  //           data: addMessage,
+  //         }),
+  //         headers: {
+  //           "Content-type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     if (res.ok) {
+  //       ctx.fetchData();
+  //     } else {
+  //       throw new Error("添加出错");
+  //     }
+  //   } catch (e) {
+  //     setError(e.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }, [addMessage]);
   const commitHandle = () => {
     modifyData(addMessage);
   };
   const modifyHandle = () => {
     setIsModalVisible(true);
+    console.log(props.data.id);
+    console.log("确认修改");
   };
   const cancleModifyHandle = () => {
     props.setIsModify(false);
+    console.log("取消修改");
   };
   return (
     <>

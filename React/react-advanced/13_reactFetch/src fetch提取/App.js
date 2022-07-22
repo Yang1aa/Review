@@ -12,7 +12,7 @@ export default function App() {
         error,
         fetchData,
     } = useFetch({
-        requestUrl: 'students',
+        requestUrl: 'http://localhost:1337/api/students',
         requestType: 'get',
     });
     useEffect(() => {

@@ -9,38 +9,13 @@ export default function useFetch(obj, cb) {
         try {
             setLoading(true);
             setError(null);
-            let res;
-            switch (requestType.toLowerCase()) {
-                case 'get':
-                    res = await fetch(requestUrl);
-                    break;
-                case 'put':
-                    res = await fetch(requestUrl, {
-                        method: 'put',
-                        body: JSON.stringify({ data: body }),
-                        headers: {
-                            "Content-type": "application/json",
-                        },
-                    })
-                    break;
-                case 'post':
-                    res = await fetch(requestUrl, {
-                        method: 'post',
-                        body: JSON.stringify({ data: body }),
-                        headers: {
-                            "Content-type": "application/json",
-                        },
-                    })
-                    break;
-                case 'delete':
-                    res = await fetch(requestUrl, {
-                        method: 'delete',
-                    })
-                    break;
-                default:
-                    break;
-
-            }
+            const res = await fetch("http://localhost:1337/api/" + requestUrl, {
+                method: requestType || 'get',
+                body: body ? JSON.stringify({ data: body }) : null,
+                headers: {
+                    "Content-type": "application/json",
+                },
+            });
             if (res.ok) {
                 const data = await res.json();
                 cb && cb();
