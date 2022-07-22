@@ -32,10 +32,17 @@
         // console.log('typeof(empty)',typeof(empty));
         // console.log('typeof(nodefine)',typeof(nodefine));
         // console.log('typeof(obj)',typeof(obj));
-        console.log('typeof(obj)', obj instanceof (Object));
-        console.log('typeof(arr)', arr instanceof (Array));
-        console.log('typeof(empty)', empty instanceof (Object));
-        console.log('typeof(fn)', fn instanceof (Function));
+        // console.log('typeof(obj)', obj instanceof (Object));
+        // console.log('typeof(arr)', arr instanceof (Array));
+        // console.log('typeof(empty)', empty instanceof (Object));
+        // console.log('typeof(fn)', fn instanceof (Function));
+        console.log(Object.prototype.toString.call(number));
+        console.log(Object.prototype.toString.call(string));
+        console.log(Object.prototype.toString.call(arr));
+        console.log(Object.prototype.toString.call(fn));
+        console.log(Object.prototype.toString.call(empty));
+        console.log(Object.prototype.toString.call(nodefine));
+        console.log(Object.prototype.toString.call(obj));
     </script>
 </body>
 
