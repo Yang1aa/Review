@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const stuSlice = createSlice({
-  name: stu,
+  name: "stu",
   initialState: {
     name: "孙悟空",
     age: 18,
@@ -12,7 +12,7 @@ const stuSlice = createSlice({
     setName(state, attion) {
       state.name = attion.payload;
     },
-    setAge() {
+    setAge(state, attion) {
       state.age = attion.payload;
     },
   },

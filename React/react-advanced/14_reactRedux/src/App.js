@@ -1,8 +1,8 @@
 import React from 'react'
-import { useSelect, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { setAge, setName } from './Store';
 export default function App() {
-    const student = useSelect(state => state.student)
+    const student = useSelector(state => state.student)
     const dispatch = useDispatch();
     const nameChangeHandle = () => {
         dispatch(setName('沙和尚'))
