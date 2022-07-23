@@ -20,7 +20,8 @@ const studentApi = createApi({
                 },
                 transformResponse(baseQueryReturnValue) {
                     return baseQueryReturnValue.data;
-                }
+                },
+                keepUnusedDataFor: 60
             })
         }
     }
