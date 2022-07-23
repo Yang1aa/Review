@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal } from "antd";
+import { useGetStudentsByIdQuery } from "../../../store/studentApi";
 import style from "./index.module.css";
 
 export default function StudentAdd(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [addMessage, setAddMessage] = useState(
-    props.isModify
-      ? props.data.attributes
-      : {
-          name: "",
-          age: "",
-          sex: "男",
-          address: "",
-        }
-  );
+  const [addMessage, setAddMessage] = useState({
+    name: "",
+    age: "",
+    sex: "男",
+    address: "",
+  });
   const handleOk = () => {
     setIsModalVisible(false);
   };
@@ -48,6 +45,14 @@ export default function StudentAdd(props) {
   const cancleModifyHandle = () => {
     props.setIsModify(false);
   };
+  const { data, isSuccess } = props.isModify
+    ? useGetStudentsByIdQuery(props.data.id)
+    : {};
+  useEffect(() => {
+    if (isSuccess) {
+      setAddMessage(data.attributes);
+    }
+  }, [isSuccess]);
   return (
     <>
       {/* {!loading && ( */}

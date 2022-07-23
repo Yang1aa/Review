@@ -11,11 +11,22 @@ const studentApi = createApi({
                     return 'students';
                 },
                 transformResponse(baseQueryReturnValue) {
-                    return baseQueryReturnValue.data
+                    return baseQueryReturnValue.data;
+                }
+            }),
+            getStudentsById: build.query({
+                query(id) {
+                    return `students/${id}`;
+                },
+                transformResponse(baseQueryReturnValue) {
+                    return baseQueryReturnValue.data;
                 }
             })
         }
     }
 })
-export const { useGetStudentsQuery } = studentApi
+export const {
+    useGetStudentsQuery,
+    useGetStudentsByIdQuery
+} = studentApi
 export default studentApi;
