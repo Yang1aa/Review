@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <button id="sub">减少</button>
+        <span id="countSpan">1</span>
+        <button id="add">增加</button>
+    </div>
+    <script src="https://unpkg.com/redux@4.2.0/dist/redux.js"></script>
+
+    <script>
+        function reducer(state, attion) {
+            switch (attion.type.toLowerCase()) {
+                case 'add':
+                    return state + 1;
+                case 'sub':
+                    return state - 1;
+                default:
+                    return state;
+            }
+        }
+        const store = Redux.createStore(reducer, 1);
+        store.subscribe(() => {
+            console.log("state", store.getState())
+            span.innerText = store.getState();
+        })
+
+        const subButton = document.getElementById('sub');
+        const addButton = document.getElementById('add');
+        const span = document.getElementById('countSpan');
+        subButton.onclick = () => {
+            console.log("sub")
+            store.dispatch({ type: 'sub' })
+        }
+        addButton.onclick = () => {
+            console.log("add")
+            store.dispatch({ type: 'add' })
+
+        }
+
+    </script>
+</body>
+
+</html>

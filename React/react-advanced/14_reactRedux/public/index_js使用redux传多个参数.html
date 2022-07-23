@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <button id="sub">减少</button>
+        <span id="countSpan">1</span>
+        <span id="nameSpan"></span>
+        <button id="add">增加</button>
+        <button id="add_Num">增加plus</button>
+    </div>
+    <script src="https://unpkg.com/redux@4.2.0/dist/redux.js"></script>
+
+    <script>
+        function reducer(state = { count: 1, name: '孙悟空' }, attion) {
+            switch (attion.type.toLowerCase()) {
+                case 'add':
+                    return { ...state, count: state.count + 1 };
+                case 'sub':
+                    return { ...state, count: state.count - 1 };
+                case 'add_num':
+                    return { ...state, count: state.count + attion.addNum };
+                default:
+                    return state;
+            }
+        }
+        const store = Redux.createStore(reducer);
+        store.subscribe(() => {
+            console.log("state", store.getState())
+            countSpan.innerText = store.getState().count;
+            nameSpan.innerText = store.getState().name;
+        })
+
+        const subButton = document.getElementById('sub');
+        const addButton = document.getElementById('add');
+        const addNumButton = document.getElementById('add_Num');
+        const countSpan = document.getElementById('countSpan');
+        const nameSpan = document.getElementById('nameSpan');
+        nameSpan.innerText = store.getState().name;
+        subButton.onclick = () => {
+            store.dispatch({ type: 'sub' })
+        }
+        addButton.onclick = () => {
+            store.dispatch({ type: 'add' })
+        }
+        addNumButton.onclick = () => {
+            store.dispatch({ type: 'add_Num', addNum: 50 })
+
+        }
+
+    </script>
+</body>
+
+</html>
