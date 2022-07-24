@@ -4,6 +4,7 @@ const studentApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:1337/api/"
     }),
+    tagTypes: ['students'],
     endpoints(build) {
         return {
             getStudents: build.query({
@@ -12,7 +13,11 @@ const studentApi = createApi({
                 },
                 transformResponse(baseQueryReturnValue) {
                     return baseQueryReturnValue.data;
-                }
+                },
+                providesTags: [{
+                    type: 'students',
+                    id: 'List'
+                }]
             }),
             getStudentsById: build.query({
                 query(id) {
@@ -21,7 +26,10 @@ const studentApi = createApi({
                 transformResponse(baseQueryReturnValue) {
                     return baseQueryReturnValue.data;
                 },
-                keepUnusedDataFor: 60
+                providesTags: (result, error, id) => [{
+                    type: 'students',
+                    id
+                }]
             }),
             deleteStudent: build.mutation({
                 query(id) {
@@ -29,7 +37,11 @@ const studentApi = createApi({
                         url: `students/${id}`,
                         method: 'delete',
                     }
-                }
+                },
+                invalidatesTags: [{
+                    type: 'students',
+                    id: 'List'
+                }]
             }),
             addStudent: build.mutation({
                 query(obj) {
@@ -38,7 +50,11 @@ const studentApi = createApi({
                         method: 'post',
                         body: { data: obj },
                     }
-                }
+                },
+                invalidatesTags: [{
+                    type: 'students',
+                    id: 'List'
+                }]
             }),
             updateStudent: build.mutation({
                 query(obj) {
@@ -47,7 +63,11 @@ const studentApi = createApi({
                         method: 'put',
                         body: { data: obj.data },
                     }
-                }
+                },
+                invalidatesTags: ((result, error, obj) => [
+                    { type: 'students', id: obj.id },
+                    { type: 'students', id: 'List' }
+                ])
             })
         }
     }

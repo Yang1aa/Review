@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import {
   useDeleteStudentMutation,
-  useGetStudentsQuery,
 } from "../../../store/studentApi";
 import StudentAdd from "../StudentAdd/index";
 import style from "./index.module.css";
@@ -11,14 +10,12 @@ export default function StudentList(props) {
   // 返回一个数组，数组第一个值为触发器，第二个值为结果对象
   const [delteStundent, res] = useDeleteStudentMutation();
   const { isLoading, isError } = res;
-  const { refetch } = useGetStudentsQuery();
   console.log("res", res);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModify, setIsModify] = useState(false);
   const handleOk = () => {
     setIsModalVisible(false);
     delteStundent(props.item.id);
-    refetch();
   };
   const handleCancel = () => {
     setIsModalVisible(false);
