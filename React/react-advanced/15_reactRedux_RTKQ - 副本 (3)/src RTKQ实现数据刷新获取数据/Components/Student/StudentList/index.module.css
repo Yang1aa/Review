@@ -1,0 +1,21 @@
+.content {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h2 {
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.width {
+    width: 240px;
+    display: flex;
+    justify-content: space-evenly;
+}
