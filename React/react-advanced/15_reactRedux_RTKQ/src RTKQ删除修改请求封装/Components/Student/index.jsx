@@ -27,15 +27,16 @@ export default function Stundent(props) {
             <Button type="primary">操作</Button>
           </div>
         </div>
-        {data.map((item) => {
-          return (
-            <React.Fragment key={item.id}>
-              <div className={style.content}>
-                <StudentList item={item} />
-              </div>
-            </React.Fragment>
-          );
-        })}
+        {data &&
+          data.map((item) => {
+            return (
+              <React.Fragment key={item.id}>
+                <div className={style.content}>
+                  <StudentList item={item} />
+                </div>
+              </React.Fragment>
+            );
+          })}
         <StudentAdd isModify={isModify} />
       </>
     </div>
