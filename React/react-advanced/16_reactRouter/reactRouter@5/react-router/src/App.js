@@ -9,7 +9,26 @@ function App() {
     <div className="App">
       <LinkMenu />
       <Route exact path='/' component={Home} />
-      <Route exact path='/about' component={About} />
+      {/* <Route exact path='/about' component={About} /> */}
+      {/* <Route exact path='/about' component={() => {
+        return <About />
+      }} /> */}
+      {/* <Route exact path='/about' component={(props) => {
+        return <About {...props} />
+      }} /> */}
+      {/* <Route exact path='/about' render={(props) => {
+        return <About {...props} />
+      }} /> */}
+      {/* <Route exact path='/about' children={(props) => {
+        return <About {...props} />
+      }} /> */}
+      {/* <Route exact path='/about' children={<About />} /> */}
+      {/* <Route exact path='/about'  >
+        <About />
+      </Route> */}
+      <Route exact path='/about'  >
+        {props => <About {...props} />}
+      </Route>
       <Route exact path='/student/:id' component={Student} />
     </div>
   );

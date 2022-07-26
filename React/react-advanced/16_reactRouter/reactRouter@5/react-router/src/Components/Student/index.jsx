@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  useRouteMatch,
+  useParams,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 const STUDENT_MESSAGE = [
   {
     id: 1,
@@ -19,6 +25,15 @@ const STUDENT_MESSAGE = [
 ];
 export default function Student(props) {
   console.log("props", props);
+
+  const match = useRouteMatch();
+  const params = useParams();
+  const history = useHistory();
+  const loation = useLocation();
+  console.log("match", match);
+  console.log("params", params);
+  console.log("history", history);
+  console.log("loation", loation);
   const stu = STUDENT_MESSAGE.find(
     (item) => item.id === +props.match.params.id
   );

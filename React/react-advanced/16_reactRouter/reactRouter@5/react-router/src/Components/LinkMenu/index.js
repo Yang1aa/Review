@@ -17,6 +17,7 @@ export default function LinkMenu() {
             <NavLink exact to='/student/3' activeStyle={{ textDecoration: "underline" }}>沙和尚</NavLink>
             <br />
             <NavLink exact to='/student/4' activeStyle={{ textDecoration: "underline" }}>唐僧</NavLink>
+            <br />
         </div>
     )
 }
