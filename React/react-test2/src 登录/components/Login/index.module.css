@@ -1,0 +1,40 @@
+.content_style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 18px;
+    color: skyblue;
+    width: 130px;
+}
+
+h2 {
+    color: skyblue;
+    font-size: 20px;
+}
+
+input {
+    width: 150px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid skyblue;
+    padding: 5px;
+}
+
+button {
+    margin: 10px 35px 0 15px;
+    background-color: skyblue;
+    border-radius: 10px;
+    border: 0;
+    width: 70px;
+    height: 35px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: red
+}
