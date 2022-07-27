@@ -4,8 +4,7 @@
   "info": {
     "singularName": "student",
     "pluralName": "students",
-    "displayName": "student",
-    "description": ""
+    "displayName": "Student"
   },
   "options": {
     "draftAndPublish": true
@@ -15,13 +14,13 @@
     "name": {
       "type": "string"
     },
-    "sex": {
-      "type": "string"
-    },
     "age": {
       "type": "integer"
     },
     "address": {
+      "type": "string"
+    },
+    "sex": {
       "type": "string"
     }
   }
