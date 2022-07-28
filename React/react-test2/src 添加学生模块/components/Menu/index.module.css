@@ -1,0 +1,20 @@
+.NavLink_style,
+.NavLink_style_active {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.NavLink_style_active {
+    color: skyblue;
+}
+
+.NavLink_style:visited {
+    color: black;
+}
+
+
+.NavLink_style:hover {
+    color: red;
+    text-decoration: underline;
+}
