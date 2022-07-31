@@ -9,7 +9,28 @@
 </head>
 
 <body>
+    <script>
+        function MySetInterval(fn, delay, ...args) {
+            let flag = true;
+            let f = () => {
+                while (flag) {
+                    setTimeout(() => {
+                        fn(...args);
+                    }, delay)
+                }
+            }
+            flag = f();
+            return flag;
+        }
+        let n = 10
+        let f = MySetInterval((n) => {
+            console.log("n", n--)
+        }, 1000, n)
+        const Clear = (f) => {
+            f = false;
+        }
 
+    </script>
 </body>
 
 </html>
