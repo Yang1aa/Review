@@ -24,7 +24,7 @@ function mySetInterval(fn, delay, ...args) {
 let n = 10
 let obj = mySetInterval(() => {
     console.log(n--)
-}, 1000)
+}, 1000, n)
 
 //清除轮询
 function myClearInterval(obj) {  //myClearInterval函数接受的是一个对象
