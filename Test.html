@@ -6,31 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #content {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+
+        #right {
+            display: flex;
+            margin-left: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <script>
-        function MySetInterval(fn, delay, ...args) {
-            let flag = true;
-            let f = () => {
-                while (flag) {
-                    setTimeout(() => {
-                        fn(...args);
-                    }, delay)
-                }
-            }
-            flag = f();
-            return flag;
-        }
-        let n = 10
-        let f = MySetInterval((n) => {
-            console.log("n", n--)
-        }, 1000, n)
-        const Clear = (f) => {
-            f = false;
-        }
-
-    </script>
+    <div id="content">
+        <div>
+            <div>1</div>
+        </div>
+        <div id="right">
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </div>
 </body>
 
 </html>
