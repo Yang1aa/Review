@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log("arguments", arguments)
+            console.log("arguments.length", arguments.length)
+            arguments[3] = "添加一个元素";
+            console.log("arguments", arguments)
+            console.log("arguments.length", arguments.length)
+            arguments.push = Array.prototype.push;
+            arguments.push("再添加一个元素")
+            arguments.push("再添加两个元素")
+            console.log("arguments", arguments)
+            console.log("arguments.length", arguments.length)
+            console.log("arguments是不是数组", Array.isArray(arguments));
+            // arguments = Array.from(arguments);
+            // console.log("arguments是不是数组", Array.isArray(arguments));
+            arguments = [...arguments];
+            console.log("arguments是不是数组", Array.isArray(arguments));
+        }
+        fn('a', 'b', 'c')
+    </script>
+</body>
+
+</html>
