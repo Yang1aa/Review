@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const REJECT = "rejected";
+        const RESOLVE = "resolved";
+        const PEDDING = "pedding";
+        class myPromise {
+            state = PEDDING;
+            resmessage = undefined;
+            eromessage = undefined;
+            constructor(fn) {
+                let resolved = (res) => {
+                    if (this.state === PEDDING) {
+                        this.resmessage = res;
+                        this.state = RESOLVE
+                    }
+                }
+                let rejected = (ero) => {
+                    if (this.state === PEDDING) {
+                        this.eromessage = ero;
+                        this.state = REJECT
+                    }
+                }
+                fn(resolved, rejected)
+            }
+            then(resolved, rejected) {
+                if (this.state === RESOLVE) {
+                    setTimeout(() => {
+                        resolved(this.resmessage);
+                    }, 0)
+                }
+                if (this.state === REJECT) {
+                    setTimeout(() => {
+                        rejected(this.resmessage);
+                    }, 0)
+                }
+            }
+        }
+        const test = new myPromise((resolve) => {
+            console.log("1")
+            resolve("yjf")
+        })
+        test.then(res => console.log("res", res))
+        console.log("2")
+    </script>
+</body>
+
+</html>
