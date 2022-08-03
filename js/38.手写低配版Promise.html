@@ -10,39 +10,39 @@
 
 <body>
     <script>
-        const RESOLVE = "resolved";
-        const REJECT = "rejected";
-        const PEDDING = "pedding";
-        class myPromise {
-            state = PEDDING;
-            resMessage = undefined;
-            errMessage = undefined;
-            constructor(fn) {
-                const resolve = (res) => {
-                    this.resMessage = res;
-                    this.state = RESOLVE;
-                }
-                const reject = (err) => {
-                    this.errMessage = err;
-                    this.state = REJECT;
-                }
-                fn(resolve, reject);
-            }
-            then(resolve, reject) {
-                if (this.state === RESOLVE) {
-                    resolve(this.resMessage);
-                }
-                if (this.state === REJECT) {
-                    reject(this.errMessage)
-                }
-            }
+const RESOLVE = "resolved";
+const REJECT = "rejected";
+const PEDDING = "pedding";
+class myPromise {
+    state = PEDDING;
+    resMessage = undefined;
+    errMessage = undefined;
+    constructor(fn) {
+        const resolve = (res) => {
+            this.resMessage = res;
+            this.state = RESOLVE;
         }
-        let test = new myPromise((resolve) => {
-            resolve('yjf')
-        })
-        test.then((Res) => {
-            console.log("Res", Res)
-        })
+        const reject = (err) => {
+            this.errMessage = err;
+            this.state = REJECT;
+        }
+        fn(resolve, reject);
+    }
+    then(resolve, reject) {
+        if (this.state === RESOLVE) {
+            resolve(this.resMessage);
+        }
+        if (this.state === REJECT) {
+            reject(this.errMessage)
+        }
+    }
+}
+let test = new myPromise((resolve) => {
+    resolve('yjf')
+})
+test.then((Res) => {
+    console.log("Res", Res)
+})
     </script>
 </body>
 
