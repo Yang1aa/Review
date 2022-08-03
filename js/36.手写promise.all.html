@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function myPromise_all(arr) {
+            let result = [];
+            let index = 0;
+            let len = arr.length;
+            return new Promise((resolve, reject) => {
+                const addData = (key, value) => {
+                    result[key] = value;
+                    if (++index === len)
+                        resolve(result);
+                }
+                arr.forEach((item, index) => {
+                    if (item instanceof Promise) {
+                        item.then((resolve) => {
+                            addData(index, item)
+                        }, error => {
+                            reject(error);
+                        })
+                    } else {
+                        addData(index, item);
+                    }
+                });
+            })
+        }
+        const p1 = new Promise(resolve => {
+            setTimeout(() => {
+                resolve("p1")
+            }, 3000)
+        })
+        const p2 = new Promise(resolve => {
+            resolve("p2")
+        })
+        myPromise_all(['a', 'b', p1, p2, 'c']).then((res) => {
+            console.log(res)
+        })
+    </script>
+</body>
+
+</html>
