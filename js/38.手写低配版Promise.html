@@ -10,47 +10,39 @@
 
 <body>
     <script>
-        const REJECT = "rejected";
         const RESOLVE = "resolved";
+        const REJECT = "rejected";
         const PEDDING = "pedding";
         class myPromise {
             state = PEDDING;
-            resmessage = undefined;
-            eromessage = undefined;
+            resMessage = undefined;
+            errMessage = undefined;
             constructor(fn) {
-                let resolved = (res) => {
-                    if (this.state === PEDDING) {
-                        this.resmessage = res;
-                        this.state = RESOLVE
-                    }
+                const resolve = (res) => {
+                    this.resMessage = res;
+                    this.state = RESOLVE;
                 }
-                let rejected = (ero) => {
-                    if (this.state === PEDDING) {
-                        this.eromessage = ero;
-                        this.state = REJECT
-                    }
+                const reject = (err) => {
+                    this.errMessage = err;
+                    this.state = REJECT;
                 }
-                fn(resolved, rejected)
+                fn(resolve, reject);
             }
-            then(resolved, rejected) {
+            then(resolve, reject) {
                 if (this.state === RESOLVE) {
-                    setTimeout(() => {
-                        resolved(this.resmessage);
-                    }, 0)
+                    resolve(this.resMessage);
                 }
                 if (this.state === REJECT) {
-                    setTimeout(() => {
-                        rejected(this.resmessage);
-                    }, 0)
+                    reject(this.errMessage)
                 }
             }
         }
-        const test = new myPromise((resolve) => {
-            console.log("1")
-            resolve("yjf")
+        let test = new myPromise((resolve) => {
+            resolve('yjf')
         })
-        test.then(res => console.log("res", res))
-        console.log("2")
+        test.then((Res) => {
+            console.log("Res", Res)
+        })
     </script>
 </body>
 
