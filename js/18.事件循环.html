@@ -137,7 +137,26 @@
 
         // 结果：promise1  async1 start  async2  script start  async1 end
 
-        
+
+        new Promise((resolve, reject) => {
+            console.log("promise1")
+            resolve()
+        })
+            .then(() => {
+                console.log("then11")
+                new Promise((resolve, reject) => {
+                    console.log("promise2")
+                    resolve()
+                }).then(() => {
+                    console.log("then21")
+                }).then(() => {
+                    console.log("then23")
+                })
+            }).then(() => {
+                console.log("then12")
+            })
+
+//结果：promise1 then11 promise2 then21 then12 then23
     </script>
 </body>
 

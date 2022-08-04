@@ -1,10 +1,19 @@
-//实现在1s之后打印'done'
-function wait(time) {
-    //todo
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, time)
+new Promise((resolve, reject) => {
+    console.log("promise1")
+    resolve()
+})
+    .then(() => {
+        console.log("then11")
+        new Promise((resolve, reject) => {
+            console.log("promise2")
+            resolve()
+        }).then(() => {
+            console.log("then21")
+        }).then(() => {
+            console.log("then23")
+        })
+    }).then(() => {
+        console.log("then12")
     })
-}
-wait(1000).then(() => console.log('done'))
+
+//promise1 then11 promise2 then21 then12 then23
