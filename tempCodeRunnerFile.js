@@ -1,4 +1,5 @@
-console.log(test)
-// console.log(test[3][2][2])
-// console.log(test)
-// console.log(arr)
+
+    for (let i = 2; i <= n; i++) {
+        res.push(res[i - 1] + res[i - 2]);
+    }
+    return res[n];
