@@ -1,46 +1,90 @@
 const PEDDING = "pedding";
 const RESOLVED = "resolved";
 const REJECTED = "rejected";
-class myPromise {
-    state = PEDDING;
-    message = undefined;
+
+class iPromsie {
     constructor(fn) {
-        const myresolve = (message) => {
-            this.state = RESOLVED;
-            this.message = message;
+        this.state = PEDDING;
+        this.messsge = undefined;
+        this.callbackList = [];
+        const resolve = (val) => {
+            if (this.state === PEDDING) {
+                this.state = RESOLVED;
+                this.messsge = val;
+                setTimeout(() => {
+                    this.callbackList.forEach(item => item.onResolved(val))
+                })
+            }
         }
-        const myrejecte = (message) => {
-            this.state = REJECTED;
-            this.message = message;
+        const reject = (val) => {
+            if (this.state === PEDDING) {
+                this.state = REJECTED;
+                this.messsge = val;
+                setTimeout(() => {
+                    this.callbackList.forEach(item => item.onRejected(val))
+                })
+            }
         }
-        fn(myresolve, myrejecte);
+        fn(resolve, reject);
     }
-    then = (resolved, rejected) => {
-        if (this.state === RESOLVED) {
-            resolved(this.message);
-        }
-        if (this.state === REJECTED) {
-            rejected(this.message);
-        }
+    then = (onResolved, onRejected) => {
+        return new iPromsie((resolve, reject) => {
+            const handleCallback = (callback) => {
+                try {
+                    let res = callback(this.messsge);
+                    if (res instanceof Promise) {
+                        res.then(val => resolve(val), err => reject(err))
+                    } else
+                    resolve(res);
+                } catch (err) {
+                    reject(err)
+                }
+            }
+            if (this.state === RESOLVED) {
+                setTimeout(() => {
+                    handleCallback(onResolved)
+                })
+            }
+            if (this.state === REJECTED) {
+                setTimeout(() => {
+                    handleCallback(onRejected)
+                })
+            }
+            if (this.state === PEDDING) {
+                this.callbackList.push({
+                    onResolved: () => handleCallback(onResolved),
+                    onRejected: () => handleCallback(onRejected)
+                })
+            }
+        })
+    }
+    static resolve(val) {
+        return new iPromsie((resolve, reject) => {
+            if (val instanceof Promise)
+                val.then((val) => resolve(val), err => reject(err))
+            else
+                resolve(val);
+        })
+    }
+    static reject(val) {
+        return new iPromsie((resolve, reject) => {
+            reject(val)
+        })
     }
 }
-new Promise((resolve, reject) => {
-    reject("yjf")
-}).then(
-    (res) => {
-        console.log("res_success1", res)
-    },
-    (res) => {
-        console.log("res_error1", res)
-    }
-)
-new myPromise((resolve, rejected) => {
-    rejected("yjf")
-}).then(
-    (res) => {
-        console.log("res_success2", res)
-    },
-    (res) => {
-        console.log("res_error2", res)
-    }
-)
+new iPromsie((resolve, reject) => {
+    resolve('111')
+}).then((res) => {
+    console.log(res)
+    return "222"
+}).then((res) => {
+    console.log(res)
+    return "333"
+}).then((res) => {
+    console.log(res)
+    return "444"
+}).then((res) => {
+    console.log(res)
+})
+console.log("--------------------------------------------")
+iPromsie.resolve("123").then((Res) => console.log("Res", Res))
