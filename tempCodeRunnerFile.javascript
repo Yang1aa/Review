@@ -1,27 +1,63 @@
-var restoreIpAddresses = function (s) {
-    let res = [];
-    let pre = 0;
-    function dfs(current, str, point) {
-        if (str.length === s.length + 3 && point === 3) {
-            res.push(str);
-            return;
-        }
-        console.log("pre", pre)
-        console.log("current", current)
-        console.log("str", str)
-        console.log("str.substring(pre, current)", str.substring(pre, current))
-        if (str.substring(pre, current) > 255 || (current > pre && str.charAt(pre + 1) === '0') || (point === 3 && current != s.length + 3)) {
-            return;
-        }
-        for (let i = current; i < s.length; i++) {
-            pre = current;
-            str += s[i] + '.';
-            dfs(i + 1, str, ++point);
-            str = str.substring(0, str.length - 1);
-        }
+// 遍历给定节点id的所有子节点，如有结果以数组形式输出
+const tree = [
+  {
+    id: "1",
+    children: [
+      {
+        id: "2",
+        children: [
+          {
+            id: "3",
+            children: [{ id: "4" }]
+          },
+          { id: "5" },
+          {
+            id: "6",
+            children: [{ id: "7" }]
+          },
+        ]
+      },
+      {
+        id: "8",
+        children: [{ id: "9" }]
+      }
+    ]
+  }
+]
+const p = (tree) => {
+  console.log(tree)
+  tree.map(item => {
+    console.log(item)
+    if (item.children) {
+      p(item.children);
     }
-    dfs(0, "", 0)
-    return res;
-};
-s = "25525511135"
-restoreIpAddresses(s)
+    arr.push(item.id);
+  })
+}
+let arr = [];
+function fn(tree, num, key) {
+  console.log(tree)
+
+  tree.forEach(item => {
+    console.log(item[key])
+    if (item[key] === num) {
+    console.log(item.children)
+
+      if (item.children) {
+        p(item.children)
+      }
+      else {
+        arr.push("当前节点下无子节点");
+      }
+    }
+    if (item.children) {
+      fn(item.children, num, key)
+    }
+  })
+}
+fn(tree, '1', 'id')
+console.log(arr)
+// // 示例：fn(tree, '1', 'id') // [2，3，4，5，6，7，8，9]
+// // 示例：fn(tree, '2', 'id') // [3，4，5，6，7]
+// // 示例：fn(tree, '8', 'id') // [9]
+// // 示例：fn(tree, '7', 'id') // '当前节点下无子节点'
