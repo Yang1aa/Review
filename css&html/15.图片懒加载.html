@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content {
+            width: 300px;
+            height: 500px;
+            margin: 30px auto;
+            /* overflow-y，超出父元素的子元素用滚轮显示 */
+            overflow-y: auto;
+            background-color: skyblue;
+        }
+
+        #parent {
+            height: 1000px;
+        }
+
+        #img {
+            margin-top: 800px;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="parent">
+            <img src="" alt="" id="img" data-src="../imgs/image.jpeg">
+            <img loading="lazy" src="../imgs/image.jpeg" alt="">
+        </div>
+    </div>
+    <script>
+        let content = document.getElementById("content");
+        let parent = document.getElementById("parent");
+        let img = document.getElementById("img");
+        content.onscroll = function () {
+            let h1 = this.scrollTop
+            let h2 = this.clientHeight;
+            let h3 = img.offsetTop;
+            if (h3 < h1 + h2) {
+                img.src = img.dataset.src;
+            }
+        }
+    </script>
+</body>
+
+</html>
